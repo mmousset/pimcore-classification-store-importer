@@ -1,0 +1,29 @@
+{
+  "name": "divante/classificationstore",
+  "type": "pimcore-bundle",
+  "license": "GPLv3",
+  "authors": [
+    {
+      "name": "Wojciech Peisert",
+      "email": "wpeisert@divante.co",
+      "homepage": "https://divante.co/",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.1",
+    "pimcore/pimcore": ">=5.4.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Divante\\ClassificationstoreBundle\\": "src/"
+    }
+  },
+  "extra": {
+    "pimcore": {
+      "bundles": [
+        "Divante\\ClassificationstoreBundle\\ClassificationstoreBundle"
+      ]
+    }
+  }
+}
