@@ -8,3 +8,24 @@ services:
         # this means you cannot fetch services directly from the container via $container->get()
         # if you need to do this, you can override this setting on individual services
         public: false
+
+    Divante\ClassificationstoreBundle\Import\Interfaces\ItemFactoryInterface:
+        class: Divante\ClassificationstoreBundle\Import\ItemFactory
+
+    Divante\ClassificationstoreBundle\Import\Interfaces\KeyFactoryInterface:
+        class: Divante\ClassificationstoreBundle\Import\KeyFactory
+
+    Divante\ClassificationstoreBundle\Import\Importer:
+        public: true
+
+    Divante\ClassificationstoreBundle\Repository\StoreRepository:
+        public: true
+
+    Divante\ClassificationstoreBundle\Repository\CollectionRepository:
+        public: true
+
+    Divante\ClassificationstoreBundle\Repository\GroupRepository:
+        public: true
+
+    Divante\ClassificationstoreBundle\Repository\KeyRepository:
+        public: true
