@@ -40,7 +40,8 @@ class ClassificationstoreBundle extends AbstractPimcoreBundle
      */
     public function getDescription()
     {
-        return 'Pimcore5 bundle that provides import and export for classification store structure and other facilities.';
+        return
+            'Pimcore5 bundle that provides import and export for classification store structure and other facilities.';
     }
 
     /**
