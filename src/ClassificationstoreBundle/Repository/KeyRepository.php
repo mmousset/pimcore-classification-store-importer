@@ -59,4 +59,22 @@ class KeyRepository
 
         return $keyConfig;
     }
+
+    /**
+     * @param int $keyId
+     * @return KeyConfig
+     */
+    public function getById(int $keyId): KeyConfig
+    {
+        return KeyConfig::getById($keyId);
+    }
+
+    /**
+     * @return array
+     */
+    public function getAll(): array
+    {
+        $list = new KeyConfig\Listing();
+        return $list->load();
+    }
 }

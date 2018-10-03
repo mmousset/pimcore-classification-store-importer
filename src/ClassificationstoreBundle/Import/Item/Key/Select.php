@@ -8,6 +8,7 @@
 
 namespace Divante\ClassificationstoreBundle\Import\Item\Key;
 
+use Divante\ClassificationstoreBundle\Constants;
 use Divante\ClassificationstoreBundle\Import\Item\Key;
 use Pimcore\Model\DataObject\Classificationstore\KeyConfig;
 
@@ -17,12 +18,6 @@ use Pimcore\Model\DataObject\Classificationstore\KeyConfig;
  */
 class Select extends Key
 {
-    private const IMPORT_OPTION_TEXT = 'option_text';
-    private const IMPORT_OPTION_VAL  = 'option_value';
-
-    private const DEFINITION_OPTION_TEXT = 'key';
-    private const DEFINITION_OPTION_VAL  = 'value';
-
     /**
      * @param KeyConfig $keyConfig
      */
@@ -31,7 +26,7 @@ class Select extends Key
         parent::prepareKeyConfig($keyConfig);
         $options = $this->getOptions();
         $definition = json_decode($keyConfig->getDefinition(), true);
-        $definition['options'] = $options;
+        $definition[Constants::OPTIONS] = $options;
         $keyConfig->setDefinition(json_encode($definition));
     }
 
@@ -43,8 +38,8 @@ class Select extends Key
         $options = [];
 
         for ($iter = 1;; ++$iter) {
-            $paramText = self::IMPORT_OPTION_TEXT . $iter;
-            $paramVal = self::IMPORT_OPTION_VAL . $iter;
+            $paramText = Constants::IMPORT_OPTION_TEXT . $iter;
+            $paramVal = Constants::IMPORT_OPTION_VAL . $iter;
             $text = $this->get($paramText);
             $value = $this->get($paramVal);
             if (null === $text || null === $value) {
@@ -52,8 +47,8 @@ class Select extends Key
             }
 
             $options[] = [
-                self::DEFINITION_OPTION_TEXT => $text,
-                self::DEFINITION_OPTION_VAL  => $value
+                Constants::DEFINITION_OPTION_TEXT => $text,
+                Constants::DEFINITION_OPTION_VAL  => $value
             ];
         }
 

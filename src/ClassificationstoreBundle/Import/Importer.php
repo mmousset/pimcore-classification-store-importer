@@ -10,6 +10,7 @@ namespace Divante\ClassificationstoreBundle\Import;
 
 use Divante\ClassificationstoreBundle\Component\DataWrapper;
 use Divante\ClassificationstoreBundle\Import\Interfaces\ItemFactoryInterface;
+use Divante\ClassificationstoreBundle\Constants;
 use Divante\ClassificationstoreBundle\Import\Interfaces\ItemInterface;
 
 /**

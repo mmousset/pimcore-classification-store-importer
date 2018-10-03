@@ -13,8 +13,9 @@ use Divante\ClassificationstoreBundle\Import\Item\Store;
 use Divante\ClassificationstoreBundle\Import\Item\Collection;
 use Divante\ClassificationstoreBundle\Import\Item\Group;
 use Divante\ClassificationstoreBundle\Import\Interfaces\ItemFactoryInterface;
-use Divante\ClassificationstoreBundle\Import\Interfaces\ItemInterface;
+use Divante\ClassificationstoreBundle\Constants;
 use Divante\ClassificationstoreBundle\Import\Interfaces\KeyFactoryInterface;
+use Divante\ClassificationstoreBundle\Import\Interfaces\ItemInterface;
 
 /**
  * Class ItemFactory
@@ -43,18 +44,18 @@ class ItemFactory implements ItemFactoryInterface
      */
     public function getItem(DataWrapper $data): ItemInterface
     {
-        $item = $data->get(ItemInterface::ITEM);
+        $item = $data->get(Constants::ITEM);
         switch ($item) {
-            case ItemInterface::ITEM_STORE:
+            case Constants::ITEM_STORE:
                 return new Store($data);
                 break;
-            case ItemInterface::ITEM_COLLECTION:
+            case Constants::ITEM_COLLECTION:
                 return new Collection($data);
                 break;
-            case ItemInterface::ITEM_GROUP:
+            case Constants::ITEM_GROUP:
                 return new Group($data);
                 break;
-            case ItemInterface::ITEM_KEY:
+            case Constants::ITEM_KEY:
                 return $this->keyFactory->getItem($data);
                 break;
             default:
