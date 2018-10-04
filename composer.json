@@ -1,5 +1,6 @@
 {
   "name": "divante/classificationstore",
+  "description": "Pimcore5 bundle for Classificationstore import and export",
   "type": "pimcore-bundle",
   "license": "GPLv3",
   "authors": [
@@ -12,6 +13,7 @@
   ],
   "require": {
     "php": ">=7.1",
+    "ext-json": "",
     "pimcore/pimcore": ">=5.4.0"
   },
   "autoload": {
