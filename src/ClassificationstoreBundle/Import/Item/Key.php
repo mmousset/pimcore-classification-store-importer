@@ -8,8 +8,9 @@
 
 namespace Divante\ClassificationstoreBundle\Import\Item;
 
-use Divante\ClassificationstoreBundle\Import\Interfaces\ItemInterface;
+use Divante\ClassificationstoreBundle\Constants;
 use Pimcore\Model\DataObject\Classificationstore\KeyConfig;
+use Divante\ClassificationstoreBundle\Import\Interfaces\ItemInterface;
 
 /**
  * Class Key
@@ -44,9 +45,9 @@ class Key extends AbstractItem implements ItemInterface
             }
         }
 
-        unset($attributes[ItemInterface::ITEM]);
-        unset($attributes[ItemInterface::DESCRIPTION]);
-        unset($attributes[ItemInterface::TITLE]);
+        unset($attributes[Constants::ITEM]);
+        unset($attributes[Constants::DESCRIPTION]);
+        $attributes[Constants::FIELDTYPE] = $attributes[Constants::TYPE];
 
         $keyConfig->setDefinition(json_encode($attributes));
     }

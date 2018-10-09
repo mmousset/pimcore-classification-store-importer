@@ -8,6 +8,7 @@
 
 namespace Divante\ClassificationstoreBundle\Repository;
 
+use Divante\ClassificationstoreBundle\Export\Item\Store;
 use Pimcore\Model\DataObject\Classificationstore\StoreConfig;
 
 /**
@@ -30,5 +31,23 @@ class StoreRepository
         }
 
         return $storeConfig;
+    }
+
+    /**
+     * @param int $storeId
+     * @return StoreConfig
+     */
+    public function getById(int $storeId): StoreConfig
+    {
+        return StoreConfig::getById($storeId);
+    }
+
+    /**
+     * @return array
+     */
+    public function getAll(): array
+    {
+        $list = new StoreConfig\Listing();
+        return $list->load();
     }
 }

@@ -18,12 +18,27 @@ class CsvParser
      * @param array $csvData
      * @return array
      */
-    public static function parseCsvData(array $csvData): array
+    public static function csvToArray(array $csvData): array
     {
         $data = [];
         $len = count($csvData);
         for ($iter = 0; $iter < $len; $iter+=2) {
             $data[$csvData[$iter]] = $csvData[$iter + 1];
+        }
+
+        return $data;
+    }
+
+    /**
+     * @param array $arrayData
+     * @return array
+     */
+    public static function arrayToCsv(array $arrayData): array
+    {
+        $data = [];
+        foreach ($arrayData as $name => $value) {
+            $data[] = $name;
+            $data[] = $value;
         }
 
         return $data;

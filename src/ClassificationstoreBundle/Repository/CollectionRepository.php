@@ -11,6 +11,7 @@ namespace Divante\ClassificationstoreBundle\Repository;
 use Pimcore\Model\DataObject\Classificationstore\CollectionConfig;
 use Pimcore\Model\DataObject\Classificationstore\CollectionGroupRelation;
 use Pimcore\Model\DataObject\Classificationstore\CollectionGroupRelation\Listing as CollectionGroupRelationListing;
+use Pimcore\Model\DataObject\Classificationstore\GroupConfig;
 
 /**
  * Class CollectionRepository
@@ -73,6 +74,7 @@ class CollectionRepository
 
         $list = new CollectionGroupRelationListing();
         $list->setCondition('colId = ? AND groupId = ?', [$colId, $groupId]);
+        $list->load();
         if (count($list->getList()) > 0) {
             return;
         }
@@ -82,5 +84,42 @@ class CollectionRepository
         $relation->setGroupId($groupId);
 
         $relation->save();
+    }
+
+    /**
+     * @param int $collectionId
+     * @return CollectionConfig
+     */
+    public function getById(int $collectionId): CollectionConfig
+    {
+        return CollectionConfig::getById($collectionId);
+    }
+
+    /**
+     * @return array
+     */
+    public function getAll(): array
+    {
+        $list = new CollectionConfig\Listing();
+        return $list->load();
+    }
+
+    /**
+     * @param int $collectionId
+     * @return GroupConfig[]
+     */
+    public function getGroups(int $collectionId): array
+    {
+        $groups = [];
+        $list = new CollectionGroupRelationListing();
+        $list->setCondition('colId = ?', [$collectionId]);
+        $list->load();
+        /** @var CollectionGroupRelation $relation */
+        foreach ($list->getList() as $relation) {
+            $groupId = $relation->getGroupId();
+            $groups[] = $this->groupRepository->getById($groupId);
+        }
+
+        return $groups;
     }
 }

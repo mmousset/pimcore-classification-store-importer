@@ -8,6 +8,7 @@
 
 namespace Divante\ClassificationstoreBundle\Command;
 
+use Divante\ClassificationstoreBundle\Export\Exporter;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -27,7 +28,7 @@ class ClassificationstoreExportCommand extends ContainerAwareCommand
         $this
             ->setName('divante:classificationstore:export')
             ->setDescription('Export definition of Classificationstore to CSV file')
-            ->addOption('file', 'f', InputArgument::REQUIRED, 'CSV file name')
+            ->addOption('file', 'f', InputArgument::OPTIONAL, 'CSV file name')
             ->addOption('delimiter', 'd', InputArgument::OPTIONAL, 'CSV delimiter', ';')
         ;
     }
@@ -41,6 +42,17 @@ class ClassificationstoreExportCommand extends ContainerAwareCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        // @TODO - implement
+        $file = $input->getOption('file');
+        $delimiter = $input->getOption('delimiter');
+
+        /** @var Exporter $exporter */
+        $exporter = $this->getContainer()->get(Exporter::class);
+
+        $csv = $exporter->getCsv($delimiter);
+        file_put_contents($file, $csv);
+
+        // @TODO - remove 2 lines below
+        $output->writeln('');
+        $output->writeln($csv);
     }
 }

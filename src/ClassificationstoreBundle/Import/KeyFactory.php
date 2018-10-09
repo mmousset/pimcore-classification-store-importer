@@ -9,8 +9,9 @@
 namespace Divante\ClassificationstoreBundle\Import;
 
 use Divante\ClassificationstoreBundle\Component\DataWrapper;
-use Divante\ClassificationstoreBundle\Import\Interfaces\ItemInterface;
+use Divante\ClassificationstoreBundle\Constants;
 use Divante\ClassificationstoreBundle\Import\Interfaces\KeyFactoryInterface;
+use Divante\ClassificationstoreBundle\Import\Interfaces\ItemInterface;
 
 /**
  * Class KeyFactory
@@ -27,7 +28,7 @@ class KeyFactory implements KeyFactoryInterface
      */
     public function getItem(DataWrapper $data): ItemInterface
     {
-        $type = $data->get(ItemInterface::TYPE);
+        $type = $data->get(Constants::TYPE);
         $class = self::KEYS_ITEMS_NAMESPACE . ucfirst($type);
         if (!class_exists($class)) {
             throw new \Exception("Key type '$type' not implemented");

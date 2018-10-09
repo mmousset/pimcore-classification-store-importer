@@ -25,7 +25,7 @@ class DataWrapper
      */
     public function __construct(array $csvData)
     {
-        $this->data = CsvParser::parseCsvData($csvData);
+        $this->data = CsvParser::csvToArray($csvData);
     }
 
     /**

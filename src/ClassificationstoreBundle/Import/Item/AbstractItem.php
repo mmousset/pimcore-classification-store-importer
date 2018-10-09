@@ -13,6 +13,7 @@ use Divante\ClassificationstoreBundle\Repository\KeyRepository;
 use Divante\ClassificationstoreBundle\Repository\StoreRepository;
 use Divante\ClassificationstoreBundle\Repository\CollectionRepository;
 use Divante\ClassificationstoreBundle\Repository\GroupRepository;
+use Divante\ClassificationstoreBundle\Constants;
 use Divante\ClassificationstoreBundle\Import\Interfaces\ItemInterface;
 
 /**
@@ -67,7 +68,7 @@ abstract class AbstractItem implements ItemInterface
      */
     public function getItemType(): string
     {
-        return $this->data->get(ItemInterface::ITEM);
+        return $this->data->get(Constants::ITEM);
     }
 
     /**
@@ -75,7 +76,7 @@ abstract class AbstractItem implements ItemInterface
      */
     public function getName(): string
     {
-        return $this->data->get(ItemInterface::NAME);
+        return $this->data->get(Constants::NAME);
     }
 
     /**
@@ -83,7 +84,7 @@ abstract class AbstractItem implements ItemInterface
      */
     public function getTitle(): string
     {
-        return $this->data->get(ItemInterface::TITLE, '');
+        return $this->data->get(Constants::TITLE, '');
     }
 
     /**
@@ -91,7 +92,7 @@ abstract class AbstractItem implements ItemInterface
      */
     public function getDescription(): string
     {
-        return $this->data->get(ItemInterface::DESCRIPTION, '');
+        return $this->data->get(Constants::DESCRIPTION, '');
     }
 
     /**
@@ -99,7 +100,7 @@ abstract class AbstractItem implements ItemInterface
      */
     public function getType(): string
     {
-        return $this->data->get(ItemInterface::TYPE);
+        return $this->data->get(Constants::TYPE);
     }
 
     /**
@@ -107,7 +108,7 @@ abstract class AbstractItem implements ItemInterface
      */
     public function getStore(): string
     {
-        return $this->data->get(ItemInterface::STORE);
+        return $this->data->get(Constants::STORE);
     }
 
     /**

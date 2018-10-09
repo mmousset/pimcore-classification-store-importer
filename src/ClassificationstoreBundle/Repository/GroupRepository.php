@@ -9,6 +9,7 @@
 namespace Divante\ClassificationstoreBundle\Repository;
 
 use Pimcore\Model\DataObject\Classificationstore\GroupConfig;
+use Pimcore\Model\DataObject\Classificationstore\KeyConfig;
 use Pimcore\Model\DataObject\Classificationstore\KeyGroupRelation;
 use Pimcore\Model\DataObject\Classificationstore\KeyGroupRelation\Listing as KeyGroupRelationListing;
 
@@ -73,6 +74,7 @@ class GroupRepository
 
         $list = new KeyGroupRelationListing();
         $list->setCondition('keyId = ? AND groupId = ?', [$keyId, $groupId]);
+        $list->load();
         if (count($list->getList()) > 0) {
             return;
         }
@@ -82,5 +84,42 @@ class GroupRepository
         $relation->setKeyId($keyId);
 
         $relation->save();
+    }
+
+    /**
+     * @param int $groupId
+     * @return KeyConfig[]
+     */
+    public function getKeys(int $groupId): array
+    {
+        $keys = [];
+        $list = new KeyGroupRelationListing();
+        $list->setCondition('groupId = ?', [$groupId]);
+        $list->load();
+        /** @var KeyGroupRelation $relation */
+        foreach ($list->getList() as $relation) {
+            $keyId = $relation->getKeyId();
+            $keys[] = $this->keyRepository->getById($keyId);
+        }
+
+        return $keys;
+    }
+
+    /**
+     * @param int $groupId
+     * @return GroupConfig
+     */
+    public function getById(int $groupId): GroupConfig
+    {
+        return GroupConfig::getById($groupId);
+    }
+
+    /**
+     * @return array
+     */
+    public function getAll(): array
+    {
+        $list = new GroupConfig\Listing();
+        return $list->load();
     }
 }

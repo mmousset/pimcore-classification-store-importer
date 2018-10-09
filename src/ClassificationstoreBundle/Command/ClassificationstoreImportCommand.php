@@ -10,6 +10,7 @@ namespace Divante\ClassificationstoreBundle\Command;
 
 use Divante\ClassificationstoreBundle\Component\DataWrapper;
 use Divante\ClassificationstoreBundle\Import\Importer;
+use Divante\ClassificationstoreBundle\Constants;
 use Divante\ClassificationstoreBundle\Import\Interfaces\ItemInterface;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Helper\ProgressBar;
@@ -45,11 +46,11 @@ class ClassificationstoreImportCommand extends ContainerAwareCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $filename = $input->getOption('file');
+        $file = $input->getOption('file');
         $delimiter = $input->getOption('delimiter');
 
         // for count only
-        $csvData = file_get_contents($filename);
+        $csvData = file_get_contents($file);
         $serializer = $this->getContainer()->get('serializer');
         $data = $serializer->decode($csvData, 'csv', ['csv_delimiter' => $delimiter]);
         $count = count($data);
@@ -62,14 +63,14 @@ class ClassificationstoreImportCommand extends ContainerAwareCommand
         /** @var Importer $importer */
         $importer = $this->getContainer()->get(Importer::class);
 
-        $file = new \SplFileObject($filename);
+        $file = new \SplFileObject($file);
         $file->setFlags(\SplFileObject::READ_CSV);
         $file->setCsvControl($delimiter);
         $counter = 0;
         $success = 0;
         foreach ($file as $row) {
             $data = new DataWrapper($row);
-            if (!$data->get(ItemInterface::ITEM)) {
+            if (!$data->get(Constants::ITEM)) {
                 continue;
             }
 

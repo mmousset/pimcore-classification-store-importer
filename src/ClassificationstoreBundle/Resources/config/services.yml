@@ -18,6 +18,15 @@ services:
     Divante\ClassificationstoreBundle\Import\Importer:
         public: true
 
+    Divante\ClassificationstoreBundle\Export\Interfaces\ItemFactoryInterface:
+      class: Divante\ClassificationstoreBundle\Export\ItemFactory
+
+    Divante\ClassificationstoreBundle\Export\Interfaces\KeyFactoryInterface:
+      class: Divante\ClassificationstoreBundle\Export\KeyFactory
+
+    Divante\ClassificationstoreBundle\Export\Exporter:
+        public: true
+
     Divante\ClassificationstoreBundle\Repository\StoreRepository:
         public: true
 

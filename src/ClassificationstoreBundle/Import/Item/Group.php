@@ -8,6 +8,7 @@
 
 namespace Divante\ClassificationstoreBundle\Import\Item;
 
+use Divante\ClassificationstoreBundle\Constants;
 use Divante\ClassificationstoreBundle\Import\Interfaces\ItemInterface;
 
 /**
@@ -26,9 +27,9 @@ class Group extends AbstractItem implements ItemInterface
         $groupConfig = $this->groupRepository->getByNameOrCreate($name, $store);
         $groupConfig->setDescription($this->getDescription());
 
-        $keys = $this->get(self::KEYS);
+        $keys = $this->get(Constants::KEYS);
         if (trim($keys)) {
-            foreach (explode(self::DELIMITER, $keys) as $key) {
+            foreach (explode(Constants::DELIMITER, $keys) as $key) {
                 $this->groupRepository->addKeyToGroup(trim($key), $name, $store);
             }
         }
