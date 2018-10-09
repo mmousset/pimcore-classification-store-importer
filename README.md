@@ -8,6 +8,7 @@ Pimcore5 bundle that provides import and export for classification store structu
 	- [Compatibility](#compatibility)
 	- [Installation](#installation)
 	- [Usage - import](#usage-import)
+	- [Usage - export](#usage-export)
 	- [Contributing](#contributing)
     - [Licensing](#licensing)
     - [Standards & Code Quality](#standards-code-quality)
@@ -63,6 +64,18 @@ item;group;store;store2;name;group2_name;description;gr2_descr;keys; ;;;;;;;;;
 item;key;store;store2;name;key2_name;title;key2_title;description;key2_description;type;input;;;;;;;;
 item;key;store;store1;name;key1_name;title;key1_title;description;key1_description;type;select;option_text1;blue;option_value1;3;option_text2;green;option_value2;4
 ```
+
+## Usage - export
+```
+bin/console divante:classificationstore:export -f path/to/file/cs_structure.csv
+```
+or
+```
+bin/console divante:classificationstore:export -f path/to/file/cs_structure.csv -d ";"
+```
+where -d ";" option stands for CSV delimiter.
+
+Export file has the same form as import file described above.
 
 ## Contributing
 This is an internal Divante project.
