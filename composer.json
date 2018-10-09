@@ -14,18 +14,32 @@
   "require": {
     "php": ">=7.1",
     "ext-json": "*",
+    "ext-intl" : "*",
     "pimcore/pimcore": ">=5.4.0"
   },
   "autoload": {
     "psr-4": {
-      "Divante\\ClassificationstoreBundle\\": "src/"
+      "Divante\\ClassificationstoreBundle\\": "src/ClassificationstoreBundle/"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Divante\\ClassificationstoreBundle\\Test\\": "tests/unit/tests/ClassificationstoreBundle/"
+    },
+    "classmap": [
+      "app/AppKernel.php"
+    ]
+  },
+
   "extra": {
     "pimcore": {
       "bundles": [
         "Divante\\ClassificationstoreBundle\\ClassificationstoreBundle"
       ]
     }
+  },
+  "require-dev": {
+    "symfony/phpunit-bridge": "^4.1",
+    "phpunit/phpunit": "^7.4"
   }
 }
