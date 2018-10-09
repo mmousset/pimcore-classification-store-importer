@@ -13,7 +13,7 @@
   ],
   "require": {
     "php": ">=7.1",
-    "ext-json": "",
+    "ext-json": "*",
     "pimcore/pimcore": ">=5.4.0"
   },
   "autoload": {
