@@ -7,7 +7,7 @@ variables:
   PIMCORE_ENVIRONMENT: test
 
 services:
-  - mysql:l5.7
+  - mysql:5.7
 
 cache:
   key: "${CI_PROJECT_ID}"
