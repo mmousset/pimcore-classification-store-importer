@@ -8,25 +8,8 @@
 
 namespace Divante\ClassificationstoreBundle\Test\Repository;
 
-use Divante\ClassificationstoreBundle\Repository\StoreRepository;
-use Pimcore\Test\KernelTestCase;
-
-class StoreRepositoryTest extends KernelTestCase
+class StoreRepositoryTest extends CommonRepositoryTest
 {
-    /**
-     * @var StoreRepository
-     */
-    private $storeRepository;
-
-    protected function setUp()
-    {
-        self::bootKernel();
-
-        $this->storeRepository = static::$kernel
-            ->getContainer()
-            ->get(StoreRepository::class);
-    }
-
     public function test_empty_base_for_no_stores()
     {
         $this->assertStoresCount(0);
@@ -45,14 +28,8 @@ class StoreRepositoryTest extends KernelTestCase
 
         $this->assertStoresCount(1);
 
-        $store1->delete();
+        $this->storeRepository->deleteAll();
 
         $this->assertStoresCount(0);
-    }
-
-    private function assertStoresCount($count)
-    {
-        $stores = $this->storeRepository->getAll();
-        $this->assertEquals($count, count($stores));
     }
 }

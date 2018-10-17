@@ -122,4 +122,14 @@ class GroupRepository
         $list = new GroupConfig\Listing();
         return $list->load();
     }
+
+    /**
+     *
+     */
+    public function deleteAll()
+    {
+        foreach ($this->getAll() as $groupConfig) {
+            $groupConfig->delete();
+        }
+    }
 }

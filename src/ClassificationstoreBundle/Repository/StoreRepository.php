@@ -50,4 +50,14 @@ class StoreRepository
         $list = new StoreConfig\Listing();
         return $list->load();
     }
+
+    /**
+     *
+     */
+    public function deleteAll()
+    {
+        foreach ($this->getAll() as $storeConfig) {
+            $storeConfig->delete();
+        }
+    }
 }

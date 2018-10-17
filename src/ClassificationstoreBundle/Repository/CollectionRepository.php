@@ -122,4 +122,14 @@ class CollectionRepository
 
         return $groups;
     }
+
+    /**
+     *
+     */
+    public function deleteAll()
+    {
+        foreach ($this->getAll() as $collectionConfig) {
+            $collectionConfig->delete();
+        }
+    }
 }
