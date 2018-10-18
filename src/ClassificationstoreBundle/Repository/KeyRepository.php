@@ -31,25 +31,25 @@ class KeyRepository
     }
 
     /**
-     * @param string $name
+     * @param string $keyName
      * @param string $storeName
      * @return KeyConfig
      */
-    public function getByNameOrCreate(string $name, string $storeName): KeyConfig
+    public function getByNameOrCreate(string $keyName, string $storeName): KeyConfig
     {
         $storeConfig = $this->storeRepository->getByNameOrCreate($storeName);
-        $keyConfig = KeyConfig::getByName($name, $storeConfig->getId());
+        $keyConfig = KeyConfig::getByName($keyName, $storeConfig->getId());
         if (!$keyConfig) {
             $definition = [
                 'fieldtype' => 'input',
-                'name' => $name,
-                'title' => $name,
+                'name' => $keyName,
+                'title' => $keyName,
                 'datatype' => 'data'
             ];
 
             $keyConfig = new KeyConfig();
-            $keyConfig->setName($name);
-            $keyConfig->setTitle($name);
+            $keyConfig->setName($keyName);
+            $keyConfig->setTitle($keyName);
             $keyConfig->setType('input');
             $keyConfig->setStoreId($storeConfig->getId());
             $keyConfig->setEnabled(1);
@@ -70,7 +70,7 @@ class KeyRepository
     }
 
     /**
-     * @return array
+     * @return KeyConfig[]
      */
     public function getAll(): array
     {

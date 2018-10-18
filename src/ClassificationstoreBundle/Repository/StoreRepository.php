@@ -8,7 +8,6 @@
 
 namespace Divante\ClassificationstoreBundle\Repository;
 
-use Divante\ClassificationstoreBundle\Export\Item\Store;
 use Pimcore\Model\DataObject\Classificationstore\StoreConfig;
 
 /**
@@ -18,15 +17,15 @@ use Pimcore\Model\DataObject\Classificationstore\StoreConfig;
 class StoreRepository
 {
     /**
-     * @param string $name
+     * @param string $storeName
      * @return StoreConfig
      */
-    public function getByNameOrCreate(string $name): StoreConfig
+    public function getByNameOrCreate(string $storeName): StoreConfig
     {
-        $storeConfig = StoreConfig::getByName($name);
+        $storeConfig = StoreConfig::getByName($storeName);
         if (!$storeConfig) {
             $storeConfig = new StoreConfig();
-            $storeConfig->setName($name);
+            $storeConfig->setName($storeName);
             $storeConfig->save();
         }
 
@@ -43,7 +42,7 @@ class StoreRepository
     }
 
     /**
-     * @return array
+     * @return StoreConfig[]
      */
     public function getAll(): array
     {
@@ -54,7 +53,7 @@ class StoreRepository
     /**
      *
      */
-    public function deleteAll()
+    public function deleteAll(): void
     {
         foreach ($this->getAll() as $storeConfig) {
             $storeConfig->delete();

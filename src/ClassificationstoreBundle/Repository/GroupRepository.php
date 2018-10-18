@@ -41,18 +41,18 @@ class GroupRepository
     }
 
     /**
-     * @param string $name
+     * @param string $groupName
      * @param string $storeName
      * @return GroupConfig
      */
-    public function getByNameOrCreate(string $name, string $storeName): GroupConfig
+    public function getByNameOrCreate(string $groupName, string $storeName): GroupConfig
     {
         $storeConfig = $this->storeRepository->getByNameOrCreate($storeName);
-        $groupConfig = GroupConfig::getByName($name, $storeConfig->getId());
+        $groupConfig = GroupConfig::getByName($groupName, $storeConfig->getId());
         if (!$groupConfig) {
             $groupConfig = new GroupConfig();
             $groupConfig->setStoreId($storeConfig->getId());
-            $groupConfig->setName($name);
+            $groupConfig->setName($groupName);
             $groupConfig->save();
         }
 
@@ -64,7 +64,7 @@ class GroupRepository
      * @param string $groupName
      * @param string $storeName
      */
-    public function addKeyToGroup(string $keyName, string $groupName, string $storeName)
+    public function addKeyToGroup(string $keyName, string $groupName, string $storeName): void
     {
         $groupConfig = $this->getByNameOrCreate($groupName, $storeName);
         $keyConfig = $this->keyRepository->getByNameOrCreate($keyName, $storeName);
@@ -126,7 +126,7 @@ class GroupRepository
     /**
      *
      */
-    public function deleteAll()
+    public function deleteAll(): void
     {
         foreach ($this->getAll() as $groupConfig) {
             $groupConfig->delete();
