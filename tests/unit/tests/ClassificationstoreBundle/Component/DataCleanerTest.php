@@ -8,7 +8,6 @@
 
 namespace Divante\ClassificationstoreBundle\Test\Component;
 
-use Divante\ClassificationstoreBundle\Component\CsvParser;
 use Divante\ClassificationstoreBundle\Component\DataCleaner;
 use Pimcore\Test\KernelTestCase;
 

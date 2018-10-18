@@ -67,4 +67,4 @@ phpunit:
     - docker-php-ext-install -j$(nproc) zip iconv mcrypt bz2 exif pdo pdo_mysql mysqli gd intl
     - COMPOSER_MEMORY_LIMIT=3G composer install --ignore-platform-reqs
     - vendor/bin/pimcore-install --ignore-existing-config --admin-username=admin --admin-password=admin123 --mysql-host-socket=mysql --mysql-username=root --mysql-password=pimcoretest --mysql-database=pimcoretest --env=test --no-interaction
-    - vendor/bin/phpunit
+    - vendor/bin/phpunit --coverage-text

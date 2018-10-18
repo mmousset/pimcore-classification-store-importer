@@ -77,4 +77,14 @@ class KeyRepository
         $list = new KeyConfig\Listing();
         return $list->load();
     }
+
+    /**
+     *
+     */
+    public function deleteAll()
+    {
+        foreach ($this->getAll() as $keyConfig) {
+            $keyConfig->delete();
+        }
+    }
 }
