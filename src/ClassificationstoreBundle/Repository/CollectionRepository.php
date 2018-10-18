@@ -41,18 +41,18 @@ class CollectionRepository
     }
 
     /**
-     * @param string $name
+     * @param string $collectionName
      * @param string $storeName
      * @return CollectionConfig
      */
-    public function getByNameOrCreate(string $name, string $storeName): CollectionConfig
+    public function getByNameOrCreate(string $collectionName, string $storeName): CollectionConfig
     {
         $storeConfig = $this->storeRepository->getByNameOrCreate($storeName);
-        $collectionConfig = CollectionConfig::getByName($name, $storeConfig->getId());
+        $collectionConfig = CollectionConfig::getByName($collectionName, $storeConfig->getId());
         if (!$collectionConfig) {
             $collectionConfig = new CollectionConfig();
             $collectionConfig->setStoreId($storeConfig->getId());
-            $collectionConfig->setName($name);
+            $collectionConfig->setName($collectionName);
             $collectionConfig->save();
         }
 
@@ -64,7 +64,7 @@ class CollectionRepository
      * @param string $collectionName
      * @param string $storeName
      */
-    public function addGroupToCollection(string $groupName, string $collectionName, string $storeName)
+    public function addGroupToCollection(string $groupName, string $collectionName, string $storeName): void
     {
         $collectionConfig = $this->getByNameOrCreate($collectionName, $storeName);
         $groupConfig = $this->groupRepository->getByNameOrCreate($groupName, $storeName);
@@ -126,7 +126,7 @@ class CollectionRepository
     /**
      *
      */
-    public function deleteAll()
+    public function deleteAll(): void
     {
         foreach ($this->getAll() as $collectionConfig) {
             $collectionConfig->delete();
