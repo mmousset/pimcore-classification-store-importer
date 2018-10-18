@@ -7,6 +7,7 @@ Pimcore5 bundle that provides import and export for classification store structu
 - [classificationstore](#)
 	- [Compatibility](#compatibility)
 	- [Installation](#installation)
+	- [Documentation](#documentation)
 	- [Usage - import](#usage-import)
 	- [Usage - export](#usage-export)
 	- [Contributing](#contributing)
@@ -21,6 +22,10 @@ Pimcore 5.4.0 and higher.
 ```
 composer require divante/classificationstore
 ```
+
+## Documentation
+
+https://divante.atlassian.net/wiki/spaces/KPWP/pages/896106614/Classificationstore+bundle
 
 ## Usage - import
 ```
