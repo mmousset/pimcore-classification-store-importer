@@ -56,6 +56,8 @@ abstract class CommonRepositoryTest extends KernelTestCase
             ->getContainer()
             ->get(KeyRepository::class);
 
+        $this->clear();
+
         $this->assertStoresCount(0);
         $this->assertCollectionsCount(0);
         $this->assertGroupsCount(0);
@@ -63,6 +65,11 @@ abstract class CommonRepositoryTest extends KernelTestCase
     }
 
     protected function tearDown()
+    {
+        $this->clear();
+    }
+
+    private function clear()
     {
         $this->collectionRepository->deleteAll();
         $this->groupRepository->deleteAll();
