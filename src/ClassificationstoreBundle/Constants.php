@@ -26,6 +26,8 @@ interface Constants
     public const STORE       = 'store';
     public const TYPE        = 'type';
     public const FIELDTYPE   = 'fieldtype';
+    public const DATATYPE    = 'datatype';
+    public const DATA        = 'data';
 
     public const OPTIONS = 'options';
 
