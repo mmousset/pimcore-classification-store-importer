@@ -38,3 +38,7 @@ services:
 
     Divante\ClassificationstoreBundle\Repository\KeyRepository:
         public: true
+
+    Divante\ClassificationstoreBundle\Component\FieldWrapperInterface:
+        class: Divante\ClassificationstoreBundle\Component\FieldWrapper
+        public: true

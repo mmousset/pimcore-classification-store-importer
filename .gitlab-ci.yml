@@ -49,7 +49,7 @@ phpcpd:
 phpdocblock:
   stage: analysis
   script:
-    - composer global require "block8/php-docblock-checker":"^1.3.4" --no-interaction --prefer-dist --ignore-platform-reqs --quiet
+    - composer global require "block8/php-docblock-checker":"^1.5.0" --no-interaction --prefer-dist --ignore-platform-reqs --quiet
     - /root/.composer/vendor/bin/phpdoccheck --directory=src
 
 phploc:
