@@ -48,6 +48,7 @@ class Key extends AbstractItem implements ItemInterface
         unset($attributes[Constants::ITEM]);
         unset($attributes[Constants::DESCRIPTION]);
         $attributes[Constants::FIELDTYPE] = $attributes[Constants::TYPE];
+        $attributes[Constants::DATATYPE] = Constants::DATA;
 
         $keyConfig->setDefinition(json_encode($attributes));
     }
