@@ -70,11 +70,15 @@ class KeyRepository
     }
 
     /**
+     * @param int $storeId
      * @return KeyConfig[]
      */
-    public function getAll(): array
+    public function getAll(int $storeId = 0): array
     {
         $list = new KeyConfig\Listing();
+        if ($storeId) {
+            $list->setCondition('storeId = ?', [$storeId]);
+        }
         return $list->load();
     }
 

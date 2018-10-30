@@ -96,11 +96,15 @@ class CollectionRepository
     }
 
     /**
-     * @return array
+     * @param int $storeId
+     * @return CollectionConfig[]
      */
-    public function getAll(): array
+    public function getAll(int $storeId = 0): array
     {
         $list = new CollectionConfig\Listing();
+        if ($storeId) {
+            $list->setCondition('storeId = ?', [$storeId]);
+        }
         return $list->load();
     }
 

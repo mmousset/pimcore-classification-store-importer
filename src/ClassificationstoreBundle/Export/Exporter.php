@@ -71,16 +71,22 @@ class Exporter
 
     /**
      * @param string $delimiter
+     * @param string $stores
      * @return string
      * @throws \Exception
      */
-    public function getCsv(string $delimiter): string
+    public function getCsv(string $delimiter, string $storeName = ''): string
     {
+        $storeId = 0;
+        if ($storeName) {
+            $storeId = $this->storeRepository->getByNameOrCreate($storeName)->getId();
+        }
+
         $objects = array_merge(
-            $this->storeRepository->getAll(),
-            $this->collectionRepository->getAll(),
-            $this->groupRepository->getAll(),
-            $this->keyRepository->getAll()
+            $this->storeRepository->getAll($storeId),
+            $this->collectionRepository->getAll($storeId),
+            $this->groupRepository->getAll($storeId),
+            $this->keyRepository->getAll($storeId)
         );
 
         foreach ($objects as $object) {
