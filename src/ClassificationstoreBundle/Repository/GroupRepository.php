@@ -115,11 +115,15 @@ class GroupRepository
     }
 
     /**
-     * @return array
+     * @param int $storeId
+     * @return GroupConfig[]
      */
-    public function getAll(): array
+    public function getAll(int $storeId = 0): array
     {
         $list = new GroupConfig\Listing();
+        if ($storeId) {
+            $list->setCondition('storeId = ?', [$storeId]);
+        }
         return $list->load();
     }
 

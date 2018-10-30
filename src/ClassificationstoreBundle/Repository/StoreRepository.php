@@ -42,11 +42,15 @@ class StoreRepository
     }
 
     /**
+     * @param int $storeId
      * @return StoreConfig[]
      */
-    public function getAll(): array
+    public function getAll(int $storeId = 0): array
     {
         $list = new StoreConfig\Listing();
+        if ($storeId) {
+            $list->setCondition('id = ?', [$storeId]);
+        }
         return $list->load();
     }
 

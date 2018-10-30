@@ -12,6 +12,7 @@ use Divante\ClassificationstoreBundle\Component\DataWrapper;
 use Divante\ClassificationstoreBundle\Import\Importer;
 use Divante\ClassificationstoreBundle\Constants;
 use Divante\ClassificationstoreBundle\Import\Interfaces\ItemInterface;
+use Pimcore\Model\Asset;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Input\InputArgument;
@@ -33,6 +34,12 @@ class ClassificationstoreImportCommand extends ContainerAwareCommand
             ->setName('divante:classificationstore:import')
             ->setDescription('Import definition of Classificationstore from CSV file')
             ->addOption('file', 'f', InputArgument::OPTIONAL, 'CSV file name with classificationstore definition')
+            ->addOption(
+                'asset',
+                'a',
+                InputArgument::OPTIONAL,
+                'Path in assets to CSV file name with classificationstore definition'
+            )
             ->addOption('delimiter', 'd', InputArgument::OPTIONAL, 'CSV delimiter', ';')
         ;
     }
@@ -46,7 +53,14 @@ class ClassificationstoreImportCommand extends ContainerAwareCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $file = $input->getOption('file');
+        $asset = $input->getOption('asset');
+        if ($asset) {
+            $assetObj = Asset::getByPath($asset);
+            $file = PIMCORE_ASSET_DIRECTORY . $assetObj->getFullPath();
+        } else {
+            $file = $input->getOption('file');
+        }
+
         $delimiter = $input->getOption('delimiter');
 
         // for count only
