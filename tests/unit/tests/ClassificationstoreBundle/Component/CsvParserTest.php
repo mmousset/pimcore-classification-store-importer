@@ -39,8 +39,8 @@ class CsvParserTest extends KernelTestCase
             'name2' => 'value2',
             'name3' => 'value3'
         ];
-        $expectedOutData = ['name1', 'value1', 'name2', 'value2', 'name3', 'value3'];
-        $outData = CsvParser::arrayToCsv($inData);
+        $expectedOutData = ['"name1"', '"value1"', '"name2"', '"value2"', '"name3"', '"value3"'];
+        $outData = CsvParser::arrayToCsv($inData, '"');
         $this->assertTrue(is_array($outData));
         $this->assertEquals(6, count($outData));
 

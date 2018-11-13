@@ -31,14 +31,15 @@ class CsvParser
 
     /**
      * @param array $arrayData
+     * @param string $enclosure
      * @return array
      */
-    public static function arrayToCsv(array $arrayData): array
+    public static function arrayToCsv(array $arrayData, string $enclosure): array
     {
         $data = [];
         foreach ($arrayData as $name => $value) {
-            $data[] = $name;
-            $data[] = $value;
+            $data[] = $enclosure . $name . $enclosure;
+            $data[] = $enclosure . $value . $enclosure;
         }
 
         return $data;
