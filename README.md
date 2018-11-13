@@ -29,13 +29,9 @@ https://divante.atlassian.net/wiki/spaces/KPWP/pages/896106614/Classificationsto
 
 ## Usage - import
 ```
-bin/console divante:classificationstore:import -f path/to/file/cs_structure.csv
+bin/console divante:classificationstore:import -f path/to/file/cs_structure.csv -d ";" -c "'"
 ```
-or
-```
-bin/console divante:classificationstore:import -f path/to/file/cs_structure.csv -d ";"
-```
-where -d ";" option stands for CSV delimiter.
+where -d ";" option stands for CSV delimiter; and -c '"' stands for field enclosure
 
 Each row in CSV file represents single item: store, collection, group or key.
 
@@ -72,13 +68,9 @@ item;key;store;store1;name;key1_name;title;key1_title;description;key1_descripti
 
 ## Usage - export
 ```
-bin/console divante:classificationstore:export -f path/to/file/cs_structure.csv
-```
-or
-```
 bin/console divante:classificationstore:export -f path/to/file/cs_structure.csv -d ";"
 ```
-where -d ";" option stands for CSV delimiter.
+where -d ";" option stands for CSV delimiter; and -c '"' stands for field enclosure
 
 Export file has the same form as import file described above.
 
