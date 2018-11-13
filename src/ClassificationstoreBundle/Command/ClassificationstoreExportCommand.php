@@ -33,6 +33,7 @@ class ClassificationstoreExportCommand extends ContainerAwareCommand
             ->addOption('asset', 'a', InputArgument::OPTIONAL, 'Path in assets to CSV file name')
             ->addOption('store', 's', InputArgument::OPTIONAL, 'Name of store (if not used, it exports all stores)', '')
             ->addOption('delimiter', 'd', InputArgument::OPTIONAL, 'CSV delimiter', ';')
+            ->addOption('enclosure', 'c', InputArgument::OPTIONAL, 'Field enclosure', '"')
         ;
     }
 
@@ -46,12 +47,14 @@ class ClassificationstoreExportCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $delimiter = $input->getOption('delimiter');
+        $enclosure = $input->getOption('enclosure');
+
         $store = $input->getOption('store');
 
         /** @var Exporter $exporter */
         $exporter = $this->getContainer()->get(Exporter::class);
 
-        $csv = $exporter->getCsv($delimiter, $store);
+        $csv = $exporter->getCsv($delimiter, $enclosure, $store);
 
         $asset = $input->getOption('asset');
 

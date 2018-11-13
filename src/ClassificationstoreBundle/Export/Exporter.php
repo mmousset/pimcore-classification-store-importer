@@ -71,11 +71,12 @@ class Exporter
 
     /**
      * @param string $delimiter
+     * @param string $enclosure
      * @param string $stores
      * @return string
      * @throws \Exception
      */
-    public function getCsv(string $delimiter, string $storeName = ''): string
+    public function getCsv(string $delimiter, string $enclosure, string $storeName = ''): string
     {
         $storeId = 0;
         if ($storeName) {
@@ -92,7 +93,7 @@ class Exporter
         foreach ($objects as $object) {
             $data = $this->itemFactory->getItem($object)->getData();
             $data = DataCleaner::removeEmptyData($data);
-            $array = CsvParser::arrayToCsv($data);
+            $array = CsvParser::arrayToCsv($data, $enclosure);
             $lines[] = implode($delimiter, $array);
         }
         $csv = implode(PHP_EOL, $lines);

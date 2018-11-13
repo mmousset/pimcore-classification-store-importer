@@ -8,6 +8,7 @@
 
 namespace Divante\ClassificationstoreBundle\Command;
 
+use Divante\ClassificationstoreBundle\Component\CsvParser;
 use Divante\ClassificationstoreBundle\Component\DataWrapper;
 use Divante\ClassificationstoreBundle\Import\Importer;
 use Divante\ClassificationstoreBundle\Constants;
@@ -41,6 +42,7 @@ class ClassificationstoreImportCommand extends ContainerAwareCommand
                 'Path in assets to CSV file name with classificationstore definition'
             )
             ->addOption('delimiter', 'd', InputArgument::OPTIONAL, 'CSV delimiter', ';')
+            ->addOption('enclosure', 'c', InputArgument::OPTIONAL, 'Field enclosure', '"')
         ;
     }
 
@@ -62,11 +64,12 @@ class ClassificationstoreImportCommand extends ContainerAwareCommand
         }
 
         $delimiter = $input->getOption('delimiter');
+        $enclosure = $input->getOption('enclosure');
 
         // for count only
         $csvData = file_get_contents($file);
         $serializer = $this->getContainer()->get('serializer');
-        $data = $serializer->decode($csvData, 'csv', ['csv_delimiter' => $delimiter]);
+        $data = $serializer->decode($csvData, 'csv', ['csv_delimiter' => $delimiter, 'csv_enclosure' => $enclosure]);
         $count = count($data);
         $output->writeln('<info>Importing `' . $count . '` lines.</info>');
         // for count only - end
@@ -79,7 +82,7 @@ class ClassificationstoreImportCommand extends ContainerAwareCommand
 
         $file = new \SplFileObject($file);
         $file->setFlags(\SplFileObject::READ_CSV);
-        $file->setCsvControl($delimiter);
+        $file->setCsvControl($delimiter, $enclosure);
         $counter = 0;
         $success = 0;
         foreach ($file as $row) {
