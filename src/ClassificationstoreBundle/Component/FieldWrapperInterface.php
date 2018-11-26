@@ -36,6 +36,8 @@ interface FieldWrapperInterface
     public function set(string $groupName, string $keyName, $value): void;
 
     /**
+     * Get value by group and key
+     *
      * @param string $groupName
      * @param string $keyName
      * @return mixed

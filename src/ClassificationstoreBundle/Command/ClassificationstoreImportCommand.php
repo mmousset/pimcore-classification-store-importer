@@ -58,6 +58,10 @@ class ClassificationstoreImportCommand extends ContainerAwareCommand
         $asset = $input->getOption('asset');
         if ($asset) {
             $assetObj = Asset::getByPath($asset);
+            if (!$assetObj instanceof Asset) {
+                $output->writeln("<info>Asset doesn't exist</info>");
+                return;
+            }
             $file = PIMCORE_ASSET_DIRECTORY . $assetObj->getFullPath();
         } else {
             $file = $input->getOption('file');
@@ -65,6 +69,11 @@ class ClassificationstoreImportCommand extends ContainerAwareCommand
 
         $delimiter = $input->getOption('delimiter');
         $enclosure = $input->getOption('enclosure');
+
+        if (!file_exists($file)) {
+            $output->writeln("<info>File " . $file . " doesn't exist</info>");
+            return;
+        }
 
         // for count only
         $csvData = file_get_contents($file);
