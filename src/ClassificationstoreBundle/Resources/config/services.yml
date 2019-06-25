@@ -42,3 +42,15 @@ services:
     Divante\ClassificationstoreBundle\Component\FieldWrapperInterface:
         class: Divante\ClassificationstoreBundle\Component\FieldWrapper
         public: true
+
+    Divante\ClassificationstoreBundle\Export\Item\Store:
+        public: true
+
+    Divante\ClassificationstoreBundle\Export\Item\Collection:
+        public: true
+
+    Divante\ClassificationstoreBundle\Export\Item\Group:
+        public: true
+
+    Divante\ClassificationstoreBundle\Export\Item\Key:
+        public: true
