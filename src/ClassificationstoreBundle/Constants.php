@@ -40,4 +40,8 @@ interface Constants
 
     public const DEFINITION_OPTION_TEXT = 'key';
     public const DEFINITION_OPTION_VAL  = 'value';
+
+    public const DEFINITION_YES_LABEL = 'yesLabel';
+    public const DEFINITION_NO_LABEL = 'noLabel';
+    public const DEFINITION_EMPTY_LABEL = 'emptyLabel';
 }

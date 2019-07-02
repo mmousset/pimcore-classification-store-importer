@@ -51,6 +51,9 @@ Each row is of the form: param1;value1;param2;value2;param3;value3;...
 
 Other parameters depend on particular key type.
 
+##### Keys' other parameters (defaults):
+- booleanSelect: yesLabel (yes), noLabel (no), emptyLabel (empty), width
+
 ##### Example of CSV file
 ```
 item;store;name;store1;description;store1_description;;;;;;;;;;;;
