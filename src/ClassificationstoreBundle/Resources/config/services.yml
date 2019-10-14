@@ -9,6 +9,9 @@ services:
         # if you need to do this, you can override this setting on individual services
         public: false
 
+    Divante\ClassificationstoreBundle\Command\ClassificationstoreImportCommand: ~
+    Divante\ClassificationstoreBundle\Command\ClassificationstoreExportCommand: ~
+
     Divante\ClassificationstoreBundle\Import\Interfaces\ItemFactoryInterface:
         class: Divante\ClassificationstoreBundle\Import\ItemFactory
 
