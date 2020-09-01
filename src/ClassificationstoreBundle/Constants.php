@@ -28,6 +28,7 @@ interface Constants
     public const FIELDTYPE   = 'fieldtype';
     public const DATATYPE    = 'datatype';
     public const DATA        = 'data';
+    public const PARENT_NAME = 'parentName';
 
     public const OPTIONS = 'options';
 

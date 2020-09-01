@@ -27,6 +27,12 @@ class Group extends AbstractItem implements ItemInterface
         $groupConfig = $this->groupRepository->getByNameOrCreate($name, $store);
         $groupConfig->setDescription($this->getDescription());
 
+        $parentName = $this->get(Constants::PARENT_NAME);
+        if ($parentName) {
+            $parent = $this->groupRepository->getByNameOrCreate($parentName, $store);
+            $groupConfig->setParentId($parent->getId());
+        }
+
         $keys = $this->get(Constants::KEYS);
         if (trim($keys)) {
             foreach (explode(Constants::DELIMITER, $keys) as $key) {
