@@ -64,7 +64,7 @@ class GroupRepository
      * @param string $groupName
      * @param string $storeName
      */
-    public function addKeyToGroup(string $keyName, string $groupName, string $storeName): void
+    public function addKeyToGroup(string $keyName, string $groupName, string $storeName, ?string $sorter = null): void
     {
         $groupConfig = $this->getByNameOrCreate($groupName, $storeName);
         $keyConfig = $this->keyRepository->getByNameOrCreate($keyName, $storeName);
@@ -76,12 +76,18 @@ class GroupRepository
         $list->setCondition('keyId = ? AND groupId = ?', [$keyId, $groupId]);
         $list->load();
         if (count($list->getList()) > 0) {
+            $relation = reset($list->getList());
+            if ($relation instanceof KeyGroupRelation && $relation->getSorter() !== $sorter) {
+                $relation->setSorter($sorter);
+                $relation->save();
+            }
             return;
         }
 
         $relation = new KeyGroupRelation();
         $relation->setGroupId($groupId);
         $relation->setKeyId($keyId);
+        $relation->setSorter($sorter);
 
         $relation->save();
     }
@@ -99,7 +105,10 @@ class GroupRepository
         /** @var KeyGroupRelation $relation */
         foreach ($list->getList() as $relation) {
             $keyId = $relation->getKeyId();
-            $keys[] = $this->keyRepository->getById($keyId);
+            $keys[] = [
+                'object' => $this->keyRepository->getById($keyId),
+                'sorter' => $relation->getSorter(),
+            ];
         }
 
         return $keys;

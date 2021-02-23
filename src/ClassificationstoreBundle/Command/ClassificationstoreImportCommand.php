@@ -105,8 +105,8 @@ class ClassificationstoreImportCommand extends ContainerAwareCommand
                 $item = $importer->importItem($data);
                 $success++;
                 $output->writeln("imported: " . $item->getItemType() . " name: " . $item->getName());
-            } catch (\Exception $e) {
-                $output->writeln("import failed: " . $e->getMessage());
+            } catch (\Exception $exception) {
+                $output->writeln("import failed: " . $exception->getMessage());
             }
 
             $progressBar->advance();

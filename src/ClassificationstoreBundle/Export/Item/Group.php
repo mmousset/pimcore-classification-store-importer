@@ -47,18 +47,22 @@ class Group extends AbstractItem implements ItemInterface
 
         $keyList = $this->groupRepository->getKeys($this->groupConfig->getId());
         $keysNames = [];
+        $keysSorter = [];
         /** @var KeyConfig $keyConfig */
         foreach ($keyList as $keyConfig) {
-            $keysNames[] = $keyConfig->getName();
+            $keysNames[] = $keyConfig['object']->getName();
+            $keysSorter[] = $keyConfig['sorter'];
         }
         $keys = implode(Constants::DELIMITER, $keysNames);
+        $sorters = implode(Constants::DELIMITER, $keysSorter);
 
         $data = [
             Constants::ITEM        => Constants::ITEM_GROUP,
             Constants::NAME        => $this->groupConfig->getName(),
             Constants::DESCRIPTION => $this->groupConfig->getDescription(),
             Constants::STORE       => $storeName,
-            Constants::KEYS        => $keys
+            Constants::KEYS        => $keys,
+            Constants::SORTER      => $sorters
         ];
 
         return $data;
