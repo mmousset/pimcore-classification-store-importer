@@ -35,6 +35,7 @@ interface Constants
     public const GROUPS = 'groups';
     public const KEYS = 'keys';
     public const DELIMITER = ',';
+    public const SORTER = 'sorter';
 
     public const IMPORT_OPTION_TEXT = 'option_text';
     public const IMPORT_OPTION_VAL  = 'option_value';

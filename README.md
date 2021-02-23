@@ -62,8 +62,8 @@ item;store;name;store2;description;store2_description;;;;;;;;;;;;
 item;collection;store;store1;name;col1;description;col1_descr;groups;group1_name, group2_name;;;;;;;;
 item;collection;store;store2;name;col2;description;col2_descr;groups;group1_name;;;;;;;;
 ;;;;;;;;;;;;;;;;;
-item;group;store;store1;name;group1_name;description;gr1_descr;keys;key1_name, key2_name;;;;;;;;
-item;group;store;store2;name;group2_name;description;gr2_descr;keys; ;;;;;;;;;
+item;group;store;store1;name;group1_name;description;gr1_descr;keys;key1_name,key2_name;sorter;key1_sorter_val,key2_sorter_val ;;;;;;;;;
+item;group;store;store2;name;group2_name;description;gr2_descr;keys;sorter ;;;;;;;;;
 ;;;;;;;;;;;;;;;;;
 item;key;store;store2;name;key2_name;title;key2_title;description;key2_description;type;input;;;;;;;;
 item;key;store;store1;name;key1_name;title;key1_title;description;key1_description;type;select;option_text1;blue;option_value1;3;option_text2;green;option_value2;4
@@ -76,6 +76,9 @@ bin/console divante:classificationstore:export -f path/to/file/cs_structure.csv 
 where -d ";" option stands for CSV delimiter; and -c '"' stands for field enclosure
 
 Export file has the same form as import file described above.
+
+## Release 1.0.0 Notes
+Adds the information about 'sorter' to export file. This allows to have keys sorted within a group.
 
 ## Contributing
 This is an internal Divante project.

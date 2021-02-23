@@ -75,7 +75,7 @@ class ClassificationstoreExportCommand extends ContainerAwareCommand
      */
     private function getAssetByPath(string $path): Asset
     {
-        if ($path{0} !== '/') {
+        if ($path[0] !== '/') {
             $path = '/' . $path;
         }
 

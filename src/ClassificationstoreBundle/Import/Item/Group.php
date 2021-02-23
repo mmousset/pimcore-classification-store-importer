@@ -34,9 +34,11 @@ class Group extends AbstractItem implements ItemInterface
         }
 
         $keys = $this->get(Constants::KEYS);
+        $sorters = $this->get(Constants::SORTER);
+        $sorters = explode(Constants::DELIMITER, $sorters);
         if (trim($keys)) {
-            foreach (explode(Constants::DELIMITER, $keys) as $key) {
-                $this->groupRepository->addKeyToGroup(trim($key), $name, $store);
+            foreach (explode(Constants::DELIMITER, $keys) as $index => $key) {
+                $this->groupRepository->addKeyToGroup(trim($key), $name, $store, $sorters[$index]);
             }
         }
 
