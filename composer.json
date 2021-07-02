@@ -2,7 +2,7 @@
   "name": "divante-ltd/pimcore-classification-store-importer",
   "description": "Pimcore bundle for Classificationstore import and export",
   "type": "pimcore-bundle",
-  "license": "GPLv3",
+  "license": "GPL-3.0-or-later",
   "authors": [
     {
       "name": "Wojciech Peisert",
