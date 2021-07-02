@@ -1,6 +1,6 @@
 {
-  "name": "divante/classificationstore",
-  "description": "Pimcore5 bundle for Classificationstore import and export",
+  "name": "divante-ltd/pimcore-classification-store-importer",
+  "description": "Pimcore bundle for Classificationstore import and export",
   "type": "pimcore-bundle",
   "license": "GPLv3",
   "authors": [
