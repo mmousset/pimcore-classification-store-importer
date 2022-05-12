@@ -10,7 +10,7 @@ namespace Divante\ClassificationstoreBundle\Command;
 
 use Divante\ClassificationstoreBundle\Export\Exporter;
 use Pimcore\Model\Asset;
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -19,7 +19,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  * Class ClassificationstoreExportCommand
  * @package Divante\ClassificationstoreBundle\Command
  */
-class ClassificationstoreExportCommand extends ContainerAwareCommand
+class ClassificationstoreExportCommand extends Command
 {
     /**
      * @inheritdoc
@@ -66,6 +66,8 @@ class ClassificationstoreExportCommand extends ContainerAwareCommand
             $file = $input->getOption('file');
             file_put_contents($file, $csv);
         }
+
+        return 0;
     }
 
     /**

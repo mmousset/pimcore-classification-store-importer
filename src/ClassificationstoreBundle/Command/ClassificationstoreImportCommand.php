@@ -14,7 +14,7 @@ use Divante\ClassificationstoreBundle\Import\Importer;
 use Divante\ClassificationstoreBundle\Constants;
 use Divante\ClassificationstoreBundle\Import\Interfaces\ItemInterface;
 use Pimcore\Model\Asset;
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -24,7 +24,7 @@ use Symfony\Component\Console\Output\OutputInterface;
  * Class ClassificationstoreImportCommand
  * @package Divante\ClassificationstoreBundle\Command
  */
-class ClassificationstoreImportCommand extends ContainerAwareCommand
+class ClassificationstoreImportCommand extends Command
 {
     /**
      * @inheritdoc
@@ -60,7 +60,7 @@ class ClassificationstoreImportCommand extends ContainerAwareCommand
             $assetObj = Asset::getByPath($asset);
             if (!$assetObj instanceof Asset) {
                 $output->writeln("<info>Asset doesn't exist</info>");
-                return;
+                return 0;
             }
             $file = PIMCORE_ASSET_DIRECTORY . $assetObj->getFullPath();
         } else {
@@ -72,7 +72,7 @@ class ClassificationstoreImportCommand extends ContainerAwareCommand
 
         if (!file_exists($file)) {
             $output->writeln("<info>File " . $file . " doesn't exist</info>");
-            return;
+            return 0;
         }
 
         // for count only
@@ -120,5 +120,7 @@ class ClassificationstoreImportCommand extends ContainerAwareCommand
         if ($counter > $success) {
             $output->writeln('<error>Failed: ' . ($counter - $success) . ' items.</error>');
         }
+        
+        return 0;
     }
 }
