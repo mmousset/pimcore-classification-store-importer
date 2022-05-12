@@ -21,6 +21,12 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class ClassificationstoreExportCommand extends Command
 {
+
+    public function __construct(Exporter $exporter)
+    {
+        $this->exporterService = $exporter;
+        parent::__construct();
+    }
     /**
      * @inheritdoc
      */
@@ -52,7 +58,7 @@ class ClassificationstoreExportCommand extends Command
         $store = $input->getOption('store');
 
         /** @var Exporter $exporter */
-        $exporter = $this->getContainer()->get(Exporter::class);
+        $exporter = $this->exporterService;
 
         $csv = $exporter->getCsv($delimiter, $enclosure, $store);
 
