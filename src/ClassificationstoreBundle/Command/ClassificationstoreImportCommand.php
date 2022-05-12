@@ -19,6 +19,7 @@ use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Serializer\SerializerInterface;
 
 /**
  * Class ClassificationstoreImportCommand
@@ -26,6 +27,13 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class ClassificationstoreImportCommand extends Command
 {
+
+    public function __construct(Importer $importer, SerializerInterface $serializer)
+    {
+        $this->importer = $importer;
+        $this->serializer = $serializer;
+        parent::__construct();
+    }
     /**
      * @inheritdoc
      */
@@ -77,17 +85,13 @@ class ClassificationstoreImportCommand extends Command
 
         // for count only
         $csvData = file_get_contents($file);
-        $serializer = $this->getContainer()->get('serializer');
-        $data = $serializer->decode($csvData, 'csv', ['csv_delimiter' => $delimiter, 'csv_enclosure' => $enclosure]);
+        $data = $this->serializer->decode($csvData, 'csv', ['csv_delimiter' => $delimiter, 'csv_enclosure' => $enclosure]);
         $count = count($data);
         $output->writeln('<info>Importing `' . $count . '` lines.</info>');
         // for count only - end
 
         $progressBar = new ProgressBar($output, $count);
         $progressBar->start();
-
-        /** @var Importer $importer */
-        $importer = $this->getContainer()->get(Importer::class);
 
         $file = new \SplFileObject($file);
         $file->setFlags(\SplFileObject::READ_CSV);
@@ -102,7 +106,7 @@ class ClassificationstoreImportCommand extends Command
 
             $counter++;
             try {
-                $item = $importer->importItem($data);
+                $item = $this->importer->importItem($data);
                 $success++;
                 $output->writeln("imported: " . $item->getItemType() . " name: " . $item->getName());
             } catch (\Exception $exception) {
@@ -120,7 +124,7 @@ class ClassificationstoreImportCommand extends Command
         if ($counter > $success) {
             $output->writeln('<error>Failed: ' . ($counter - $success) . ' items.</error>');
         }
-        
+
         return 0;
     }
 }

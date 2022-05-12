@@ -24,7 +24,7 @@ class ClassificationstoreExportCommand extends Command
 
     public function __construct(Exporter $exporter)
     {
-        $this->exporterService = $exporter;
+        $this->exporter = $exporter;
         parent::__construct();
     }
     /**
@@ -57,10 +57,7 @@ class ClassificationstoreExportCommand extends Command
 
         $store = $input->getOption('store');
 
-        /** @var Exporter $exporter */
-        $exporter = $this->exporterService;
-
-        $csv = $exporter->getCsv($delimiter, $enclosure, $store);
+        $csv = $this->exporter->getCsv($delimiter, $enclosure, $store);
 
         $asset = $input->getOption('asset');
 
