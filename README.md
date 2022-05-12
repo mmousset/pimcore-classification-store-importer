@@ -20,7 +20,7 @@ Pimcore 5.4.0 and higher.
 
 ## Installation
 ```
-composer require divante/classificationstore
+composer require divante-ltd/pimcore-classification-store-importer
 ```
 
 ## Documentation
