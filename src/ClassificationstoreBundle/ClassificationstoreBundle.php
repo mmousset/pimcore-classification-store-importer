@@ -24,7 +24,7 @@ class ClassificationstoreBundle extends AbstractPimcoreBundle
      */
     public function getComposerPackageName(): string
     {
-        return 'divante/classificationstore';
+        return 'divante-ltd/pimcore-classification-store-importer';
     }
 
     /**
