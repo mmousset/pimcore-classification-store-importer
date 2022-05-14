@@ -14,18 +14,26 @@ use Divante\ClassificationstoreBundle\Import\Importer;
 use Divante\ClassificationstoreBundle\Constants;
 use Divante\ClassificationstoreBundle\Import\Interfaces\ItemInterface;
 use Pimcore\Model\Asset;
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\ProgressBar;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Serializer\SerializerInterface;
 
 /**
  * Class ClassificationstoreImportCommand
  * @package Divante\ClassificationstoreBundle\Command
  */
-class ClassificationstoreImportCommand extends ContainerAwareCommand
+class ClassificationstoreImportCommand extends Command
 {
+
+    public function __construct(Importer $importer, SerializerInterface $serializer)
+    {
+        $this->importer = $importer;
+        $this->serializer = $serializer;
+        parent::__construct();
+    }
     /**
      * @inheritdoc
      */
@@ -60,7 +68,7 @@ class ClassificationstoreImportCommand extends ContainerAwareCommand
             $assetObj = Asset::getByPath($asset);
             if (!$assetObj instanceof Asset) {
                 $output->writeln("<info>Asset doesn't exist</info>");
-                return;
+                return 0;
             }
             $file = PIMCORE_ASSET_DIRECTORY . $assetObj->getFullPath();
         } else {
@@ -72,22 +80,18 @@ class ClassificationstoreImportCommand extends ContainerAwareCommand
 
         if (!file_exists($file)) {
             $output->writeln("<info>File " . $file . " doesn't exist</info>");
-            return;
+            return 0;
         }
 
         // for count only
         $csvData = file_get_contents($file);
-        $serializer = $this->getContainer()->get('serializer');
-        $data = $serializer->decode($csvData, 'csv', ['csv_delimiter' => $delimiter, 'csv_enclosure' => $enclosure]);
+        $data = $this->serializer->decode($csvData, 'csv', ['csv_delimiter' => $delimiter, 'csv_enclosure' => $enclosure]);
         $count = count($data);
         $output->writeln('<info>Importing `' . $count . '` lines.</info>');
         // for count only - end
 
         $progressBar = new ProgressBar($output, $count);
         $progressBar->start();
-
-        /** @var Importer $importer */
-        $importer = $this->getContainer()->get(Importer::class);
 
         $file = new \SplFileObject($file);
         $file->setFlags(\SplFileObject::READ_CSV);
@@ -102,7 +106,7 @@ class ClassificationstoreImportCommand extends ContainerAwareCommand
 
             $counter++;
             try {
-                $item = $importer->importItem($data);
+                $item = $this->importer->importItem($data);
                 $success++;
                 $output->writeln("imported: " . $item->getItemType() . " name: " . $item->getName());
             } catch (\Exception $exception) {
@@ -120,5 +124,7 @@ class ClassificationstoreImportCommand extends ContainerAwareCommand
         if ($counter > $success) {
             $output->writeln('<error>Failed: ' . ($counter - $success) . ' items.</error>');
         }
+
+        return 0;
     }
 }
