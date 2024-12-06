@@ -2,18 +2,18 @@
 /**
  * @category    ClassificationstoreBundle
  * @date        01/10/2018 10:15
- * @author      Wojciech Peisert <wpeisert@divante.co>
- * @copyright   Copyright (c) 2018 Divante Ltd. (https://divante.co/)
+ * @author      Wojciech Peisert <wpeisert@Mousset.co>
+ * @copyright   Copyright (c) 2018 Mousset Ltd. (https://Mousset.co/)
  */
 
-namespace Divante\ClassificationstoreBundle\Export;
+namespace Mousset\ClassificationstoreBundle\Export;
 
-use Divante\ClassificationstoreBundle\Export\Interfaces\ItemFactoryInterface;
-use Divante\ClassificationstoreBundle\Export\Interfaces\ItemInterface;
-use Divante\ClassificationstoreBundle\Export\Interfaces\KeyFactoryInterface;
-use Divante\ClassificationstoreBundle\Export\Item\Collection;
-use Divante\ClassificationstoreBundle\Export\Item\Group;
-use Divante\ClassificationstoreBundle\Export\Item\Store;
+use Mousset\ClassificationstoreBundle\Export\Interfaces\ItemFactoryInterface;
+use Mousset\ClassificationstoreBundle\Export\Interfaces\ItemInterface;
+use Mousset\ClassificationstoreBundle\Export\Interfaces\KeyFactoryInterface;
+use Mousset\ClassificationstoreBundle\Export\Item\Collection;
+use Mousset\ClassificationstoreBundle\Export\Item\Group;
+use Mousset\ClassificationstoreBundle\Export\Item\Store;
 use Pimcore\Model\AbstractModel;
 use Pimcore\Model\DataObject\Classificationstore\CollectionConfig;
 use Pimcore\Model\DataObject\Classificationstore\GroupConfig;
@@ -22,7 +22,7 @@ use Pimcore\Model\DataObject\Classificationstore\StoreConfig;
 
 /**
  * Class ItemFactory
- * @package Divante\ClassificationstoreBundle\Export
+ * @package Mousset\ClassificationstoreBundle\Export
  */
 class ItemFactory implements ItemFactoryInterface
 {

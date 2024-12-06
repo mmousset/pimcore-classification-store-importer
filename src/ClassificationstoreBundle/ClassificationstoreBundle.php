@@ -2,18 +2,18 @@
 /**
  * @category    ClassificationstoreBundle
  * @date        27/09/2018 10:15
- * @author      Wojciech Peisert <wpeisert@divante.co>
+ * @author      MOUSSET Maxime <maxime.mousset@arhis.com>, forked from Wojciech Peisert <wpeisert@divante.co>
  * @copyright   Copyright (c) 2018 Divante Ltd. (https://divante.co/)
  */
 
-namespace Divante\ClassificationstoreBundle;
+namespace Mousset\ClassificationstoreBundle;
 
 use Pimcore\Extension\Bundle\Traits\PackageVersionTrait;
 use Pimcore\Extension\Bundle\AbstractPimcoreBundle;
 
 /**
  * Class ClassificationstoreBundle
- * @package Divante\ClassificationstoreBundle
+ * @package Mousset\ClassificationstoreBundle
  */
 class ClassificationstoreBundle extends AbstractPimcoreBundle
 {
@@ -24,13 +24,13 @@ class ClassificationstoreBundle extends AbstractPimcoreBundle
      */
     public function getComposerPackageName(): string
     {
-        return 'divante-ltd/pimcore-classification-store-importer';
+        return 'mmousset/pimcore-classification-store-importer';
     }
 
     /**
      * @return string
      */
-    public function getNiceName()
+    public function getNiceName(): string
     {
         return 'Classificationstore Tools';
     }
@@ -38,7 +38,7 @@ class ClassificationstoreBundle extends AbstractPimcoreBundle
     /**
      * @return string
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return
             'Pimcore5 bundle that provides import and export for classification store structure and other facilities.';
@@ -47,7 +47,7 @@ class ClassificationstoreBundle extends AbstractPimcoreBundle
     /**
      * @return array
      */
-    public function getJsPaths()
+    public function getJsPaths(): string
     {
         return [];
     }
@@ -55,7 +55,7 @@ class ClassificationstoreBundle extends AbstractPimcoreBundle
     /**
      * @return array
      */
-    public function getCssPaths()
+    public function getCssPaths(): string
     {
         return [];
     }

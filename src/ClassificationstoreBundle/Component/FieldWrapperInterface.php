@@ -2,17 +2,17 @@
 /**
  * @category    ClassificationstoreBundle
  * @date        19/10/2018 10:15
- * @author      Wojciech Peisert <wpeisert@divante.co>
- * @copyright   Copyright (c) 2018 Divante Ltd. (https://divante.co/)
+ * @author      Wojciech Peisert <wpeisert@Mousset.co>
+ * @copyright   Copyright (c) 2018 Mousset Ltd. (https://Mousset.co/)
  */
 
-namespace Divante\ClassificationstoreBundle\Component;
+namespace Mousset\ClassificationstoreBundle\Component;
 
 use Pimcore\Model\DataObject\Concrete;
 
 /**
  * Interface FieldWrapperInterface
- * @package Divante\ClassificationstoreBundle\Service
+ * @package Mousset\ClassificationstoreBundle\Service
  */
 interface FieldWrapperInterface
 {

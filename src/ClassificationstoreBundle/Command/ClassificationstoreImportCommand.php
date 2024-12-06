@@ -2,17 +2,17 @@
 /**
  * @category    ClassificationstoreBundle
  * @date        27/09/2018 10:15
- * @author      Wojciech Peisert <wpeisert@divante.co>
- * @copyright   Copyright (c) 2018 Divante Ltd. (https://divante.co/)
+ * @author      Wojciech Peisert <wpeisert@Mousset.co>
+ * @copyright   Copyright (c) 2018 Mousset Ltd. (https://Mousset.co/)
  */
 
-namespace Divante\ClassificationstoreBundle\Command;
+namespace Mousset\ClassificationstoreBundle\Command;
 
-use Divante\ClassificationstoreBundle\Component\CsvParser;
-use Divante\ClassificationstoreBundle\Component\DataWrapper;
-use Divante\ClassificationstoreBundle\Import\Importer;
-use Divante\ClassificationstoreBundle\Constants;
-use Divante\ClassificationstoreBundle\Import\Interfaces\ItemInterface;
+use Mousset\ClassificationstoreBundle\Component\CsvParser;
+use Mousset\ClassificationstoreBundle\Component\DataWrapper;
+use Mousset\ClassificationstoreBundle\Import\Importer;
+use Mousset\ClassificationstoreBundle\Constants;
+use Mousset\ClassificationstoreBundle\Import\Interfaces\ItemInterface;
 use Pimcore\Model\Asset;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\ProgressBar;
@@ -23,7 +23,7 @@ use Symfony\Component\Serializer\SerializerInterface;
 
 /**
  * Class ClassificationstoreImportCommand
- * @package Divante\ClassificationstoreBundle\Command
+ * @package Mousset\ClassificationstoreBundle\Command
  */
 class ClassificationstoreImportCommand extends Command
 {
@@ -40,7 +40,7 @@ class ClassificationstoreImportCommand extends Command
     protected function configure()
     {
         $this
-            ->setName('divante:classificationstore:import')
+            ->setName('Mousset:classificationstore:import')
             ->setDescription('Import definition of Classificationstore from CSV file')
             ->addOption('file', 'f', InputArgument::OPTIONAL, 'CSV file name with classificationstore definition')
             ->addOption(

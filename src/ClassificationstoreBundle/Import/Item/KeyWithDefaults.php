@@ -2,17 +2,17 @@
 /**
  * @category    ClassificationstoreBundle
  * @date        26.06.19
- * @author      Agata Drozdek <adrozdek@divante.pl>
- * @copyright   Copyright (c) 2019 Divante Ltd. (https://divante.co)
+ * @author      Agata Drozdek <adrozdek@Mousset.pl>
+ * @copyright   Copyright (c) 2019 Mousset Ltd. (https://Mousset.co)
  */
 
-namespace Divante\ClassificationstoreBundle\Import\Item;
+namespace Mousset\ClassificationstoreBundle\Import\Item;
 
 use Pimcore\Model\DataObject\Classificationstore\KeyConfig;
 
 /**
  * Class KeyWithDefaults
- * @package Divante\ClassificationstoreBundle\Import\Item
+ * @package Mousset\ClassificationstoreBundle\Import\Item
  */
 abstract class KeyWithDefaults extends Key
 {

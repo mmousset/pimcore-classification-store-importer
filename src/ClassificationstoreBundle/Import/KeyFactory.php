@@ -2,24 +2,24 @@
 /**
  * @category    ClassificationstoreBundle
  * @date        28/09/2018 10:15
- * @author      Wojciech Peisert <wpeisert@divante.co>
- * @copyright   Copyright (c) 2018 Divante Ltd. (https://divante.co/)
+ * @author      Wojciech Peisert <wpeisert@Mousset.co>
+ * @copyright   Copyright (c) 2018 Mousset Ltd. (https://Mousset.co/)
  */
 
-namespace Divante\ClassificationstoreBundle\Import;
+namespace Mousset\ClassificationstoreBundle\Import;
 
-use Divante\ClassificationstoreBundle\Component\DataWrapper;
-use Divante\ClassificationstoreBundle\Constants;
-use Divante\ClassificationstoreBundle\Import\Interfaces\KeyFactoryInterface;
-use Divante\ClassificationstoreBundle\Import\Interfaces\ItemInterface;
+use Mousset\ClassificationstoreBundle\Component\DataWrapper;
+use Mousset\ClassificationstoreBundle\Constants;
+use Mousset\ClassificationstoreBundle\Import\Interfaces\KeyFactoryInterface;
+use Mousset\ClassificationstoreBundle\Import\Interfaces\ItemInterface;
 
 /**
  * Class KeyFactory
- * @package Divante\ClassificationstoreBundle\Import
+ * @package Mousset\ClassificationstoreBundle\Import
  */
 class KeyFactory implements KeyFactoryInterface
 {
-    private const KEYS_ITEMS_NAMESPACE = "\\Divante\\ClassificationstoreBundle\\Import\\Item\\Key\\";
+    private const KEYS_ITEMS_NAMESPACE = "\\Mousset\\ClassificationstoreBundle\\Import\\Item\\Key\\";
 
     /**
      * @param DataWrapper $data

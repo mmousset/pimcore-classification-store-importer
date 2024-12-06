@@ -2,25 +2,25 @@
 /**
  * @category    ClassificationstoreBundle
  * @date        02/10/2018 10:15
- * @author      Wojciech Peisert <wpeisert@divante.co>
- * @copyright   Copyright (c) 2018 Divante Ltd. (https://divante.co/)
+ * @author      Wojciech Peisert <wpeisert@Mousset.co>
+ * @copyright   Copyright (c) 2018 Mousset Ltd. (https://Mousset.co/)
  */
 
-namespace Divante\ClassificationstoreBundle\Export;
+namespace Mousset\ClassificationstoreBundle\Export;
 
-use Divante\ClassificationstoreBundle\Export\Interfaces\KeyFactoryInterface;
-use Divante\ClassificationstoreBundle\Export\Interfaces\ItemInterface;
-use Divante\ClassificationstoreBundle\Export\Item\Key;
+use Mousset\ClassificationstoreBundle\Export\Interfaces\KeyFactoryInterface;
+use Mousset\ClassificationstoreBundle\Export\Interfaces\ItemInterface;
+use Mousset\ClassificationstoreBundle\Export\Item\Key;
 use Pimcore\Model\AbstractModel;
 use Pimcore\Model\DataObject\Classificationstore\KeyConfig;
 
 /**
  * Class KeyFactory
- * @package Divante\ClassificationstoreBundle\Export
+ * @package Mousset\ClassificationstoreBundle\Export
  */
 class KeyFactory implements KeyFactoryInterface
 {
-    private const KEYS_ITEMS_NAMESPACE = "\\Divante\\ClassificationstoreBundle\\Export\\Item\\Key\\";
+    private const KEYS_ITEMS_NAMESPACE = "\\Mousset\\ClassificationstoreBundle\\Export\\Item\\Key\\";
 
     /**
      * @param AbstractModel $model

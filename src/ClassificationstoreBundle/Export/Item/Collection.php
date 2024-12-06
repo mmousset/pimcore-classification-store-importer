@@ -2,21 +2,21 @@
 /**
  * @category    ClassificationstoreBundle
  * @date        02/10/2018 10:15
- * @author      Wojciech Peisert <wpeisert@divante.co>
- * @copyright   Copyright (c) 2018 Divante Ltd. (https://divante.co/)
+ * @author      Wojciech Peisert <wpeisert@Mousset.co>
+ * @copyright   Copyright (c) 2018 Mousset Ltd. (https://Mousset.co/)
  */
 
-namespace Divante\ClassificationstoreBundle\Export\Item;
+namespace Mousset\ClassificationstoreBundle\Export\Item;
 
-use Divante\ClassificationstoreBundle\Constants;
-use Divante\ClassificationstoreBundle\Export\Interfaces\ItemInterface;
+use Mousset\ClassificationstoreBundle\Constants;
+use Mousset\ClassificationstoreBundle\Export\Interfaces\ItemInterface;
 use Pimcore\Model\AbstractModel;
 use Pimcore\Model\DataObject\Classificationstore\CollectionConfig;
 use Pimcore\Model\DataObject\Classificationstore\GroupConfig;
 
 /**
  * Class Collection
- * @package Divante\ClassificationstoreBundle\Export\Item
+ * @package Mousset\ClassificationstoreBundle\Export\Item
  */
 class Collection extends AbstractItem implements ItemInterface
 {

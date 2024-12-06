@@ -2,18 +2,18 @@
 /**
  * @category    ClassificationstoreBundle
  * @date        28/09/2018 10:15
- * @author      Wojciech Peisert <wpeisert@divante.co>
- * @copyright   Copyright (c) 2018 Divante Ltd. (https://divante.co/)
+ * @author      Wojciech Peisert <wpeisert@Mousset.co>
+ * @copyright   Copyright (c) 2018 Mousset Ltd. (https://Mousset.co/)
  */
 
-namespace Divante\ClassificationstoreBundle\Import\Item;
+namespace Mousset\ClassificationstoreBundle\Import\Item;
 
-use Divante\ClassificationstoreBundle\Constants;
-use Divante\ClassificationstoreBundle\Import\Interfaces\ItemInterface;
+use Mousset\ClassificationstoreBundle\Constants;
+use Mousset\ClassificationstoreBundle\Import\Interfaces\ItemInterface;
 
 /**
  * Class Collection
- * @package Divante\ClassificationstoreBundle\Import\Item
+ * @package Mousset\ClassificationstoreBundle\Import\Item
  */
 class Collection extends AbstractItem implements ItemInterface
 {

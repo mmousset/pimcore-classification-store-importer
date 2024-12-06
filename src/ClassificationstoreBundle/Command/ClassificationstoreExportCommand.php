@@ -2,13 +2,13 @@
 /**
  * @category    ClassificationstoreBundle
  * @date        27/09/2018 10:15
- * @author      Wojciech Peisert <wpeisert@divante.co>
- * @copyright   Copyright (c) 2018 Divante Ltd. (https://divante.co/)
+ * @author      Wojciech Peisert <wpeisert@Mousset.co>
+ * @copyright   Copyright (c) 2018 Mousset Ltd. (https://Mousset.co/)
  */
 
-namespace Divante\ClassificationstoreBundle\Command;
+namespace Mousset\ClassificationstoreBundle\Command;
 
-use Divante\ClassificationstoreBundle\Export\Exporter;
+use Mousset\ClassificationstoreBundle\Export\Exporter;
 use Pimcore\Model\Asset;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -17,7 +17,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Class ClassificationstoreExportCommand
- * @package Divante\ClassificationstoreBundle\Command
+ * @package Mousset\ClassificationstoreBundle\Command
  */
 class ClassificationstoreExportCommand extends Command
 {
@@ -33,7 +33,7 @@ class ClassificationstoreExportCommand extends Command
     protected function configure()
     {
         $this
-            ->setName('divante:classificationstore:export')
+            ->setName('Mousset:classificationstore:export')
             ->setDescription('Export definition of Classificationstore to CSV file')
             ->addOption('file', 'f', InputArgument::OPTIONAL, 'CSV file name')
             ->addOption('asset', 'a', InputArgument::OPTIONAL, 'Path in assets to CSV file name')

@@ -2,24 +2,24 @@
 /**
  * @category    ClassificationstoreBundle
  * @date        27/09/2018 10:15
- * @author      Wojciech Peisert <wpeisert@divante.co>
- * @copyright   Copyright (c) 2018 Divante Ltd. (https://divante.co/)
+ * @author      Wojciech Peisert <wpeisert@Mousset.co>
+ * @copyright   Copyright (c) 2018 Mousset Ltd. (https://Mousset.co/)
  */
 
-namespace Divante\ClassificationstoreBundle\Import;
+namespace Mousset\ClassificationstoreBundle\Import;
 
-use Divante\ClassificationstoreBundle\Component\DataWrapper;
-use Divante\ClassificationstoreBundle\Import\Item\Store;
-use Divante\ClassificationstoreBundle\Import\Item\Collection;
-use Divante\ClassificationstoreBundle\Import\Item\Group;
-use Divante\ClassificationstoreBundle\Import\Interfaces\ItemFactoryInterface;
-use Divante\ClassificationstoreBundle\Constants;
-use Divante\ClassificationstoreBundle\Import\Interfaces\KeyFactoryInterface;
-use Divante\ClassificationstoreBundle\Import\Interfaces\ItemInterface;
+use Mousset\ClassificationstoreBundle\Component\DataWrapper;
+use Mousset\ClassificationstoreBundle\Import\Item\Store;
+use Mousset\ClassificationstoreBundle\Import\Item\Collection;
+use Mousset\ClassificationstoreBundle\Import\Item\Group;
+use Mousset\ClassificationstoreBundle\Import\Interfaces\ItemFactoryInterface;
+use Mousset\ClassificationstoreBundle\Constants;
+use Mousset\ClassificationstoreBundle\Import\Interfaces\KeyFactoryInterface;
+use Mousset\ClassificationstoreBundle\Import\Interfaces\ItemInterface;
 
 /**
  * Class ItemFactory
- * @package Divante\ClassificationstoreBundle\Import
+ * @package Mousset\ClassificationstoreBundle\Import
  */
 class ItemFactory implements ItemFactoryInterface
 {

@@ -2,19 +2,19 @@
 /**
  * @category    ClassificationstoreBundle
  * @date        28/09/2018 10:15
- * @author      Wojciech Peisert <wpeisert@divante.co>
- * @author      Agata Drozdek <adrozdek@divante.pl>
- * @copyright   Copyright (c) 2018 Divante Ltd. (https://divante.co/)
+ * @author      Wojciech Peisert <wpeisert@Mousset.co>
+ * @author      Agata Drozdek <adrozdek@Mousset.pl>
+ * @copyright   Copyright (c) 2018 Mousset Ltd. (https://Mousset.co/)
  */
 
-namespace Divante\ClassificationstoreBundle\Import\Item\Key;
+namespace Mousset\ClassificationstoreBundle\Import\Item\Key;
 
-use Divante\ClassificationstoreBundle\Constants;
-use Divante\ClassificationstoreBundle\Import\Item\KeyWithDefaults;
+use Mousset\ClassificationstoreBundle\Constants;
+use Mousset\ClassificationstoreBundle\Import\Item\KeyWithDefaults;
 
 /**
  * Class BooleanSelect
- * @package Divante\ClassificationstoreBundle\Import\Item\Key
+ * @package Mousset\ClassificationstoreBundle\Import\Item\Key
  */
 class BooleanSelect extends KeyWithDefaults
 {

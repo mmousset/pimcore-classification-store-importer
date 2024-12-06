@@ -2,17 +2,17 @@
 /**
  * @category    ClassificationstoreBundle
  * @date        28/09/2018 10:15
- * @author      Wojciech Peisert <wpeisert@divante.co>
- * @copyright   Copyright (c) 2018 Divante Ltd. (https://divante.co/)
+ * @author      Wojciech Peisert <wpeisert@Mousset.co>
+ * @copyright   Copyright (c) 2018 Mousset Ltd. (https://Mousset.co/)
  */
 
-namespace Divante\ClassificationstoreBundle\Repository;
+namespace Mousset\ClassificationstoreBundle\Repository;
 
 use Pimcore\Model\DataObject\Classificationstore\StoreConfig;
 
 /**
  * Class StoreRepository
- * @package Divante\ClassificationstoreBundle\Repository
+ * @package Mousset\ClassificationstoreBundle\Repository
  */
 class StoreRepository
 {

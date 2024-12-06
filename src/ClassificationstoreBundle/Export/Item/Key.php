@@ -2,21 +2,21 @@
 /**
  * @category    ClassificationstoreBundle
  * @date        02/10/2018 10:15
- * @author      Wojciech Peisert <wpeisert@divante.co>
- * @copyright   Copyright (c) 2018 Divante Ltd. (https://divante.co/)
+ * @author      Wojciech Peisert <wpeisert@Mousset.co>
+ * @copyright   Copyright (c) 2018 Mousset Ltd. (https://Mousset.co/)
  */
 
-namespace Divante\ClassificationstoreBundle\Export\Item;
+namespace Mousset\ClassificationstoreBundle\Export\Item;
 
-use Divante\ClassificationstoreBundle\Constants;
-use Divante\ClassificationstoreBundle\Export\Interfaces\ItemInterface;
-use Divante\ClassificationstoreBundle\Repository\StoreRepository;
+use Mousset\ClassificationstoreBundle\Constants;
+use Mousset\ClassificationstoreBundle\Export\Interfaces\ItemInterface;
+use Mousset\ClassificationstoreBundle\Repository\StoreRepository;
 use Pimcore\Model\AbstractModel;
 use Pimcore\Model\DataObject\Classificationstore\KeyConfig;
 
 /**
  * Class Key
- * @package Divante\ClassificationstoreBundle\Export\Item
+ * @package Mousset\ClassificationstoreBundle\Export\Item
  */
 class Key implements ItemInterface
 {

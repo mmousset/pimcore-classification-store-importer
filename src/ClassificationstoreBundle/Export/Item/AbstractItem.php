@@ -2,21 +2,21 @@
 /**
  * @category    ClassificationstoreBundle
  * @date        28/09/2018 10:15
- * @author      Wojciech Peisert <wpeisert@divante.co>
- * @copyright   Copyright (c) 2018 Divante Ltd. (https://divante.co/)
+ * @author      Wojciech Peisert <wpeisert@Mousset.co>
+ * @copyright   Copyright (c) 2018 Mousset Ltd. (https://Mousset.co/)
  */
 
-namespace Divante\ClassificationstoreBundle\Export\Item;
+namespace Mousset\ClassificationstoreBundle\Export\Item;
 
-use Divante\ClassificationstoreBundle\Export\Interfaces\ItemInterface;
-use Divante\ClassificationstoreBundle\Repository\CollectionRepository;
-use Divante\ClassificationstoreBundle\Repository\GroupRepository;
-use Divante\ClassificationstoreBundle\Repository\KeyRepository;
-use Divante\ClassificationstoreBundle\Repository\StoreRepository;
+use Mousset\ClassificationstoreBundle\Export\Interfaces\ItemInterface;
+use Mousset\ClassificationstoreBundle\Repository\CollectionRepository;
+use Mousset\ClassificationstoreBundle\Repository\GroupRepository;
+use Mousset\ClassificationstoreBundle\Repository\KeyRepository;
+use Mousset\ClassificationstoreBundle\Repository\StoreRepository;
 
 /**
  * Class AbstractItem
- * @package Divante\ClassificationstoreBundle\Export\Item
+ * @package Mousset\ClassificationstoreBundle\Export\Item
  */
 abstract class AbstractItem implements ItemInterface
 {

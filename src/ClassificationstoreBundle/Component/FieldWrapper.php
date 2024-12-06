@@ -2,16 +2,16 @@
 /**
  * @category    ClassificationstoreBundle
  * @date        19/10/2018 10:15
- * @author      Wojciech Peisert <wpeisert@divante.co>
- * @copyright   Copyright (c) 2018 Divante Ltd. (https://divante.co/)
+ * @author      Wojciech Peisert <wpeisert@Mousset.co>
+ * @copyright   Copyright (c) 2018 Mousset Ltd. (https://Mousset.co/)
  */
 
-namespace Divante\ClassificationstoreBundle\Component;
+namespace Mousset\ClassificationstoreBundle\Component;
 
-use Divante\ClassificationstoreBundle\Repository\CollectionRepository;
-use Divante\ClassificationstoreBundle\Repository\GroupRepository;
-use Divante\ClassificationstoreBundle\Repository\KeyRepository;
-use Divante\ClassificationstoreBundle\Repository\StoreRepository;
+use Mousset\ClassificationstoreBundle\Repository\CollectionRepository;
+use Mousset\ClassificationstoreBundle\Repository\GroupRepository;
+use Mousset\ClassificationstoreBundle\Repository\KeyRepository;
+use Mousset\ClassificationstoreBundle\Repository\StoreRepository;
 use Pimcore\Model\DataObject\ClassDefinition\Data;
 use Pimcore\Model\DataObject\Classificationstore;
 use Pimcore\Model\DataObject\Classificationstore\StoreConfig;
@@ -19,7 +19,7 @@ use Pimcore\Model\DataObject\Concrete;
 
 /**
  * Class FieldWrapper
- * @package Divante\ClassificationstoreBundle\Service
+ * @package Mousset\ClassificationstoreBundle\Service
  */
 class FieldWrapper implements FieldWrapperInterface
 {

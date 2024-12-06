@@ -2,17 +2,17 @@
 /**
  * @category    ClassificationstoreBundle
  * @date        27/09/2018 10:15
- * @author      Wojciech Peisert <wpeisert@divante.co>
- * @copyright   Copyright (c) 2018 Divante Ltd. (https://divante.co/)
+ * @author      Wojciech Peisert <wpeisert@Mousset.co>
+ * @copyright   Copyright (c) 2018 Mousset Ltd. (https://Mousset.co/)
  */
 
-namespace Divante\ClassificationstoreBundle\Import\Interfaces;
+namespace Mousset\ClassificationstoreBundle\Import\Interfaces;
 
-use Divante\ClassificationstoreBundle\Component\DataWrapper;
+use Mousset\ClassificationstoreBundle\Component\DataWrapper;
 
 /**
  * Interface FactoryInterface
- * @package Divante\ClassificationstoreBundle\Import\Interfaces
+ * @package Mousset\ClassificationstoreBundle\Import\Interfaces
  */
 interface FactoryInterface
 {

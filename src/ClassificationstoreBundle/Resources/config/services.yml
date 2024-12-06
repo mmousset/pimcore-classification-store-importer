@@ -9,51 +9,51 @@ services:
         # if you need to do this, you can override this setting on individual services
         public: false
 
-    Divante\ClassificationstoreBundle\Command\ClassificationstoreImportCommand: ~
-    Divante\ClassificationstoreBundle\Command\ClassificationstoreExportCommand: ~
+    Mousset\ClassificationstoreBundle\Command\ClassificationstoreImportCommand: ~
+    Mousset\ClassificationstoreBundle\Command\ClassificationstoreExportCommand: ~
 
-    Divante\ClassificationstoreBundle\Import\Interfaces\ItemFactoryInterface:
-        class: Divante\ClassificationstoreBundle\Import\ItemFactory
+    Mousset\ClassificationstoreBundle\Import\Interfaces\ItemFactoryInterface:
+        class: Mousset\ClassificationstoreBundle\Import\ItemFactory
 
-    Divante\ClassificationstoreBundle\Import\Interfaces\KeyFactoryInterface:
-        class: Divante\ClassificationstoreBundle\Import\KeyFactory
+    Mousset\ClassificationstoreBundle\Import\Interfaces\KeyFactoryInterface:
+        class: Mousset\ClassificationstoreBundle\Import\KeyFactory
 
-    Divante\ClassificationstoreBundle\Import\Importer:
+    Mousset\ClassificationstoreBundle\Import\Importer:
         public: true
 
-    Divante\ClassificationstoreBundle\Export\Interfaces\ItemFactoryInterface:
-      class: Divante\ClassificationstoreBundle\Export\ItemFactory
+    Mousset\ClassificationstoreBundle\Export\Interfaces\ItemFactoryInterface:
+      class: Mousset\ClassificationstoreBundle\Export\ItemFactory
 
-    Divante\ClassificationstoreBundle\Export\Interfaces\KeyFactoryInterface:
-      class: Divante\ClassificationstoreBundle\Export\KeyFactory
+    Mousset\ClassificationstoreBundle\Export\Interfaces\KeyFactoryInterface:
+      class: Mousset\ClassificationstoreBundle\Export\KeyFactory
 
-    Divante\ClassificationstoreBundle\Export\Exporter:
+    Mousset\ClassificationstoreBundle\Export\Exporter:
         public: true
 
-    Divante\ClassificationstoreBundle\Repository\StoreRepository:
+    Mousset\ClassificationstoreBundle\Repository\StoreRepository:
         public: true
 
-    Divante\ClassificationstoreBundle\Repository\CollectionRepository:
+    Mousset\ClassificationstoreBundle\Repository\CollectionRepository:
         public: true
 
-    Divante\ClassificationstoreBundle\Repository\GroupRepository:
+    Mousset\ClassificationstoreBundle\Repository\GroupRepository:
         public: true
 
-    Divante\ClassificationstoreBundle\Repository\KeyRepository:
+    Mousset\ClassificationstoreBundle\Repository\KeyRepository:
         public: true
 
-    Divante\ClassificationstoreBundle\Component\FieldWrapperInterface:
-        class: Divante\ClassificationstoreBundle\Component\FieldWrapper
+    Mousset\ClassificationstoreBundle\Component\FieldWrapperInterface:
+        class: Mousset\ClassificationstoreBundle\Component\FieldWrapper
         public: true
 
-    Divante\ClassificationstoreBundle\Export\Item\Store:
+    Mousset\ClassificationstoreBundle\Export\Item\Store:
         public: true
 
-    Divante\ClassificationstoreBundle\Export\Item\Collection:
+    Mousset\ClassificationstoreBundle\Export\Item\Collection:
         public: true
 
-    Divante\ClassificationstoreBundle\Export\Item\Group:
+    Mousset\ClassificationstoreBundle\Export\Item\Group:
         public: true
 
-    Divante\ClassificationstoreBundle\Export\Item\Key:
+    Mousset\ClassificationstoreBundle\Export\Item\Key:
         public: true

@@ -6,11 +6,11 @@
  * @copyright   Copyright (c) 2018 Divante Ltd. (https://divante.co/)
  */
 
-namespace Divante\ClassificationstoreBundle;
+namespace Mousset\ClassificationstoreBundle;
 
 /**
  * Class Constants
- * @package Divante\ClassificationstoreBundle
+ * @package Mousset\ClassificationstoreBundle
  */
 interface Constants
 {

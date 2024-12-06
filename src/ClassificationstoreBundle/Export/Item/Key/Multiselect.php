@@ -2,15 +2,15 @@
 /**
  * @category    ClassificationstoreBundle
  * @date        04/10/2018 10:15
- * @author      Wojciech Peisert <wpeisert@divante.co>
- * @copyright   Copyright (c) 2018 Divante Ltd. (https://divante.co/)
+ * @author      Wojciech Peisert <wpeisert@Mousset.co>
+ * @copyright   Copyright (c) 2018 Mousset Ltd. (https://Mousset.co/)
  */
 
-namespace Divante\ClassificationstoreBundle\Export\Item\Key;
+namespace Mousset\ClassificationstoreBundle\Export\Item\Key;
 
 /**
  * Class Multiselect
- * @package Divante\ClassificationstoreBundle\Export\Item\Key
+ * @package Mousset\ClassificationstoreBundle\Export\Item\Key
  */
 class Multiselect extends Select
 {

@@ -2,19 +2,19 @@
 /**
  * @category    ClassificationstoreBundle
  * @date        27/09/2018 10:15
- * @author      Wojciech Peisert <wpeisert@divante.co>
- * @copyright   Copyright (c) 2018 Divante Ltd. (https://divante.co/)
+ * @author      Wojciech Peisert <wpeisert@Mousset.co>
+ * @copyright   Copyright (c) 2018 Mousset Ltd. (https://Mousset.co/)
  */
 
-namespace Divante\ClassificationstoreBundle\Import\Item;
+namespace Mousset\ClassificationstoreBundle\Import\Item;
 
-use Divante\ClassificationstoreBundle\Constants;
+use Mousset\ClassificationstoreBundle\Constants;
 use Pimcore\Model\DataObject\Classificationstore\KeyConfig;
-use Divante\ClassificationstoreBundle\Import\Interfaces\ItemInterface;
+use Mousset\ClassificationstoreBundle\Import\Interfaces\ItemInterface;
 
 /**
  * Class Key
- * @package Divante\ClassificationstoreBundle\Import\Item
+ * @package Mousset\ClassificationstoreBundle\Import\Item
  */
 class Key extends AbstractItem implements ItemInterface
 {

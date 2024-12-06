@@ -2,23 +2,23 @@
 /**
  * @category    ClassificationstoreBundle
  * @date        01/10/2018 10:15
- * @author      Wojciech Peisert <wpeisert@divante.co>
- * @copyright   Copyright (c) 2018 Divante Ltd. (https://divante.co/)
+ * @author      Wojciech Peisert <wpeisert@Mousset.co>
+ * @copyright   Copyright (c) 2018 Mousset Ltd. (https://Mousset.co/)
  */
 
-namespace Divante\ClassificationstoreBundle\Export;
+namespace Mousset\ClassificationstoreBundle\Export;
 
-use Divante\ClassificationstoreBundle\Component\CsvParser;
-use Divante\ClassificationstoreBundle\Component\DataCleaner;
-use Divante\ClassificationstoreBundle\Export\Interfaces\ItemFactoryInterface;
-use Divante\ClassificationstoreBundle\Repository\CollectionRepository;
-use Divante\ClassificationstoreBundle\Repository\GroupRepository;
-use Divante\ClassificationstoreBundle\Repository\KeyRepository;
-use Divante\ClassificationstoreBundle\Repository\StoreRepository;
+use Mousset\ClassificationstoreBundle\Component\CsvParser;
+use Mousset\ClassificationstoreBundle\Component\DataCleaner;
+use Mousset\ClassificationstoreBundle\Export\Interfaces\ItemFactoryInterface;
+use Mousset\ClassificationstoreBundle\Repository\CollectionRepository;
+use Mousset\ClassificationstoreBundle\Repository\GroupRepository;
+use Mousset\ClassificationstoreBundle\Repository\KeyRepository;
+use Mousset\ClassificationstoreBundle\Repository\StoreRepository;
 
 /**
  * Class Exporter
- * @package Divante\ClassificationstoreBundle\Export
+ * @package Mousset\ClassificationstoreBundle\Export
  */
 class Exporter
 {
