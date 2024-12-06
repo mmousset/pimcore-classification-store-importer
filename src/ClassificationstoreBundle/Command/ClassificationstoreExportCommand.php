@@ -33,7 +33,7 @@ class ClassificationstoreExportCommand extends Command
     protected function configure()
     {
         $this
-            ->setName('Mousset:classificationstore:export')
+            ->setName('mousset:classificationstore:export')
             ->setDescription('Export definition of Classificationstore to CSV file')
             ->addOption('file', 'f', InputArgument::OPTIONAL, 'CSV file name')
             ->addOption('asset', 'a', InputArgument::OPTIONAL, 'Path in assets to CSV file name')

@@ -40,7 +40,7 @@ class ClassificationstoreImportCommand extends Command
     protected function configure()
     {
         $this
-            ->setName('Mousset:classificationstore:import')
+            ->setName('mousset:classificationstore:import')
             ->setDescription('Import definition of Classificationstore from CSV file')
             ->addOption('file', 'f', InputArgument::OPTIONAL, 'CSV file name with classificationstore definition')
             ->addOption(
@@ -105,6 +105,7 @@ class ClassificationstoreImportCommand extends Command
             }
 
             $counter++;
+            $output->writeln('<br>');
             try {
                 $item = $this->importer->importItem($data);
                 $success++;
