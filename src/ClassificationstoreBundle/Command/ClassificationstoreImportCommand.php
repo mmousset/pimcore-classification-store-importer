@@ -92,6 +92,7 @@ class ClassificationstoreImportCommand extends Command
 
         $progressBar = new ProgressBar($output, $count);
         $progressBar->start();
+        $output->writeln('');
 
         $file = new \SplFileObject($file);
         $file->setFlags(\SplFileObject::READ_CSV);
@@ -105,7 +106,6 @@ class ClassificationstoreImportCommand extends Command
             }
 
             $counter++;
-            $output->writeln('');
             try {
                 $item = $this->importer->importItem($data);
                 $success++;
