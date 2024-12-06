@@ -105,7 +105,7 @@ class ClassificationstoreImportCommand extends Command
             }
 
             $counter++;
-            $output->writeln('<br>');
+            $output->writeln('');
             try {
                 $item = $this->importer->importItem($data);
                 $success++;
