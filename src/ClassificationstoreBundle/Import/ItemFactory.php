@@ -60,9 +60,6 @@ class ItemFactory implements ItemFactoryInterface
             case Constants::ITEM_KEY:
                 return $this->keyFactory->getItem($data);
                 break;
-            case Constants::ITEM_UNIT:
-                return $this->unitFactory->getItem($data);
-                break;
             default:
                 throw new \Exception("Unknown item type: " . $item);
                 break;

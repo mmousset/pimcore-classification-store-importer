@@ -97,9 +97,9 @@ class ClassificationstoreImportCommand extends Command
         $progressBar->start();
         $output->writeln('');
 
-        if ($type == 'Store') {
+        if ($type == 'store') {
             executeStoreImport();
-        } else if ($type == 'Key') {
+        } else if ($type == 'key') {
             $header = fgetcsv($file);
             while ($row = fgetcsv($file)) {
                 $row = array_combine($header, $row);
