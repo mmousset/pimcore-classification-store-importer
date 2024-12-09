@@ -31,12 +31,10 @@ class ItemFactory implements ItemFactoryInterface
     /**
      * ItemFactory constructor.
      * @param KeyFactoryInterface $keyFactory
-     * @param UnitFactoryInterface $unitFactory
      */
-    public function __construct(KeyFactoryInterface $keyFactory, UnitFactoryInterface $unitFactory)
+    public function __construct(KeyFactoryInterface $keyFactory)
     {
         $this->keyFactory = $keyFactory;
-        $this->unitFactory = $unitFactory;
     }
 
     /**
