@@ -31,10 +31,12 @@ class ItemFactory implements ItemFactoryInterface
     /**
      * ItemFactory constructor.
      * @param KeyFactoryInterface $keyFactory
+     * @param UnitFactoryInterface $unitFactory
      */
-    public function __construct(KeyFactoryInterface $keyFactory)
+    public function __construct(KeyFactoryInterface $keyFactory, UnitFactoryInterface $unitFactory)
     {
         $this->keyFactory = $keyFactory;
+        $this->unitFactory = $unitFactory;
     }
 
     /**
@@ -57,6 +59,9 @@ class ItemFactory implements ItemFactoryInterface
                 break;
             case Constants::ITEM_KEY:
                 return $this->keyFactory->getItem($data);
+                break;
+            case Constants::ITEM_UNIT:
+                return $this->unitFactory->getItem($data);
                 break;
             default:
                 throw new \Exception("Unknown item type: " . $item);

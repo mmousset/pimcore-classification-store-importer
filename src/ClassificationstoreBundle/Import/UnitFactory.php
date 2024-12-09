@@ -10,16 +10,16 @@ namespace Mousset\ClassificationstoreBundle\Import;
 
 use Mousset\ClassificationstoreBundle\Component\DataWrapper;
 use Mousset\ClassificationstoreBundle\Constants;
-use Mousset\ClassificationstoreBundle\Import\Interfaces\KeyFactoryInterface;
+use Mousset\ClassificationstoreBundle\Import\Interfaces\UnitFactoryInterface;
 use Mousset\ClassificationstoreBundle\Import\Interfaces\ItemInterface;
 
 /**
- * Class KeyFactory
+ * Class UnitFactory
  * @package Mousset\ClassificationstoreBundle\Import
  */
-class KeyFactory implements KeyFactoryInterface
+class UnitFactory implements UnitFactoryInterface
 {
-    private const KEYS_ITEMS_NAMESPACE = "\\Mousset\\ClassificationstoreBundle\\Import\\Item\\Key\\";
+    private const UNIT_ITEMS_NAMESPACE = "\\Mousset\\ClassificationstoreBundle\\Import\\Item\\";
 
     /**
      * @param DataWrapper $data
@@ -31,28 +31,9 @@ class KeyFactory implements KeyFactoryInterface
         $type = $data->get(Constants::TYPE);
         $class = self::KEYS_ITEMS_NAMESPACE . ucfirst($type);
         if (!class_exists($class)) {
-            throw new \Exception("Key type '$type' not implemented");
+            throw new \Exception("Unit type '$type' not implemented");
         }
 
         return new $class($data);
-    }    
-    
-    /**
-    * @param DataWrapper $data
-    * @return ItemInterface
-    * @throws \Exception
-    */
-   public function createKey(DataWrapper $data): ItemInterface
-   {
-
-        $key = match ($data->get('Attribute type')) {
-            'float' => new QuantityValue($data),
-            'drop down list' => new Select($data),
-            'text' => new TextArea($data),
-            'int' => new Numeric($data),
-            default => throw new \Exception("Key type '$type' not implemented");
-        };
-
-       return $key;
-   }
+    }
 }

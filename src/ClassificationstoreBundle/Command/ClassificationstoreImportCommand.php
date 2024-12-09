@@ -34,6 +34,7 @@ class ClassificationstoreImportCommand extends Command
         $this->serializer = $serializer;
         parent::__construct();
     }
+
     /**
      * @inheritdoc
      */
@@ -49,6 +50,7 @@ class ClassificationstoreImportCommand extends Command
                 InputArgument::OPTIONAL,
                 'Path in assets to CSV file name with classificationstore definition'
             )
+            ->addOption('type', 't', InputArgument::OPTIONAL, 'Type of asset you want to import (store, group, key, ...)', NULL)
             ->addOption('delimiter', 'd', InputArgument::OPTIONAL, 'CSV delimiter', ';')
             ->addOption('enclosure', 'c', InputArgument::OPTIONAL, 'Field enclosure', '"')
         ;
@@ -75,6 +77,7 @@ class ClassificationstoreImportCommand extends Command
             $file = $input->getOption('file');
         }
 
+        $type = $input->getOption('type');
         $delimiter = $input->getOption('delimiter');
         $enclosure = $input->getOption('enclosure');
 
@@ -94,27 +97,40 @@ class ClassificationstoreImportCommand extends Command
         $progressBar->start();
         $output->writeln('');
 
-        $file = new \SplFileObject($file);
-        $file->setFlags(\SplFileObject::READ_CSV);
-        $file->setCsvControl($delimiter, $enclosure);
-        $counter = 0;
-        $success = 0;
-        foreach ($file as $row) {
-            $data = new DataWrapper($row);
-            if (!$data->get(Constants::ITEM)) {
-                continue;
+        if ($type == 'Store') {
+            executeStoreImport();
+        } else if ($type == 'Key') {
+            $header = fgetcsv($file);
+            while ($row = fgetcsv($file)) {
+                $row = array_combine($header, $row);
+                $data = new DataWrapper($row);
+                executeKeyImport($data);
             }
+        } else {
+            $file = new \SplFileObject($file);
+            $file->setFlags(\SplFileObject::READ_CSV);
+            $file->setCsvControl($delimiter, $enclosure);
+            $counter = 0;
+            $success = 0;
 
-            $counter++;
-            try {
-                $item = $this->importer->importItem($data);
-                $success++;
-                $output->writeln("imported: " . $item->getItemType() . " name: " . $item->getName());
-            } catch (\Exception $exception) {
-                $output->writeln("import failed: " . $exception->getMessage());
+            foreach ($file as $row) {
+            
+                $data = new DataWrapper($row);
+                if (!$data->get(Constants::ITEM)) {
+                    continue;
+                }
+
+                $counter++;
+                try {
+                    $item = $this->importer->importItem($data);
+                    $success++;
+                    $output->writeln("imported: " . $item->getItemType() . " name: " . $item->getName());
+                } catch (\Exception $exception) {
+                    $output->writeln("import failed: " . $exception->getMessage());
+                }
+
+                $progressBar->advance();
             }
-
-            $progressBar->advance();
         }
 
         $progressBar->finish();
@@ -128,4 +144,29 @@ class ClassificationstoreImportCommand extends Command
 
         return 0;
     }
+
+    /**
+     * @param InputInterface  $input
+     * @param OutputInterface $output
+     *
+     * @return int|null|void
+     * @throws \Exception
+     */
+    protected function executeStoreImport()
+    {
+
+    }
+
+    /**
+     * @param mixed  $data
+     *
+     * @return int|null|void
+     * @throws \Exception
+     */
+    protected function executeKeyImport(mixed $data)
+    {
+        $item = $this->importer->importKey($data);
+
+    }
+
 }

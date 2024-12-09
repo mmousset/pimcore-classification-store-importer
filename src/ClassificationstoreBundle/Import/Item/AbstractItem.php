@@ -61,6 +61,7 @@ abstract class AbstractItem implements ItemInterface
         $this->collectionRepository = \Pimcore::getContainer()->get(CollectionRepository::class);
         $this->groupRepository      = \Pimcore::getContainer()->get(GroupRepository::class);
         $this->keyRepository        = \Pimcore::getContainer()->get(KeyRepository::class);
+        $this->UnitRepository       = \Pimcore::getContainer()->get(Unit::class);
     }
 
     /**

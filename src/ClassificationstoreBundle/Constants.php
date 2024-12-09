@@ -19,6 +19,7 @@ interface Constants
     public const ITEM_COLLECTION = 'collection';
     public const ITEM_GROUP      = 'group';
     public const ITEM_KEY        = 'key';
+    public const ITEM_UNIT       = 'unit';
 
     public const NAME        = 'name';
     public const TITLE       = 'title';
